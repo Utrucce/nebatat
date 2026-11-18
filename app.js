@@ -1674,3 +1674,50 @@ window.addEventListener('load', () => {
   initHerbalTeaLab();
   initPetChecker();
 });
+/* ===================================================
+   12. YUKARI ÇIK & GENİŞLETİLMİŞ PITRAK ZEKA MODÜLÜ
+   =================================================== */
+function initBackToTop() {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+// Genişletilmiş Pıtrak Bilgi Dağarcığı
+pitrakKnowledge.push(
+  {
+    triggers: ['aslan yelesi', 'hafıza', 'beyin', 'odaklanma', 'hericium'],
+    response: '🦁 **Aslan Yelesi Mantarı (*Hericium erinaceus*)**, doğanın en güçlü nootropiğidir! Beyindeki sinir büyüme faktörünü (NGF) uyararak hafızayı, odaklanmayı güçlendirir. Üstelik tadı tavada pişirildiğinde ıstakoz ve deniz tarağını andırır, %100 yenilebilirdir!'
+  },
+  {
+    triggers: ['reishi', 'ölümsüzlük', 'bağışıklık mantarı'],
+    response: '🍄 **Reishi Mantarı (*Ganoderma lucidum*)**, Uzak Doğu’da binlerce yıldır "Ölümsüzlük Mantarı" olarak anılır. Sert ve odunsu olduğu için yemek yapılmaz; kaynatılarak çayı veya özütü içilir. Bağışıklık sistemini güçlendiren zengin beta-glukanlar içerir.'
+  },
+  {
+    triggers: ['pilea', 'para çiçeği', 'çin para'],
+    response: '🪙 **Çin Para Çiçeği (*Pilea peperomioides*)**, hem evcil hayvanlar (kedi ve köpek) için %100 güvenlidir hem de bakımı son derece kolaydır. Filtreli ışığı ve toprağı hafif kurudukça sulanmayı sever.'
+  },
+  {
+    triggers: ['çay', 'demleme', 'nasıl demlenir', 'kaynatma'],
+    response: '🍵 Narin çiçek ve yapraklar (Papatya, Ihlamur, Melisa, Adaçayı) **ASLA kaynatılmaz**, 90-95°C sıcak su dökülüp ağzı kapalı 5-8 dakika demlenir. Sert kök ve meyveler (Kuşburnu, Karahindiba kökü, Zencefil) ise kısık ateşte 10 dakika kaynatılır. Sitedeki **"🍵 Çay Demleme"** bölümümüzden canlı geri sayım sayacını başlatabilirsin!'
+  },
+  {
+    triggers: ['ikiz', 'benzer', 'karışan', 'aldatan'],
+    response: '⚠️ Ormanda en çok can alan 4 benzerlik şudur: **Köygöçüren (beyaz lamel)** ⚡ Çayır Mantarı (kahve lamel), **Ağulu Mantar (kütükte parlayan)** ⚡ Sarı Kız (yerde kayısı kokulu), **Yalancı Kuzugöbeği (beyin kıvrımlı)** ⚡ Gerçek Kuzugöbeği (bal peteği). Detaylar için **"🍄 İkizler Tuzağı"** bölümümüze göz atabilirsin!'
+  }
+);
+
+window.addEventListener('load', () => {
+  initBackToTop();
+});

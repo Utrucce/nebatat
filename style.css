@@ -2485,3 +2485,55 @@ body {
     background: transparent !important;
   }
 }
+/* ===================================================
+   SON DOKUNUŞLAR & ERİŞİLEBİLİRLİK (FINAL POLISH)
+   =================================================== */
+
+/* Sticky Header Scroll Kayması Düzeltmesi */
+section, 
+.filter-section, 
+.lookalikes-section, 
+.tea-lab-section, 
+.pet-checker-section, 
+.season-section, 
+.map-section, 
+.quiz-section {
+  scroll-margin-top: 110px;
+}
+
+/* Yukarı Çık (Back to Top) Yaprak Butonu */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-leaf);
+  background: rgba(4, 38, 29, 0.85);
+  border: 1px solid var(--emerald-400);
+  color: #ffffff;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: var(--transition-smooth);
+  z-index: 990;
+}
+
+.back-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+  background: var(--emerald-600);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
