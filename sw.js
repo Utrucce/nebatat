@@ -1,4 +1,4 @@
-const CACHE_NAME = 'nebatat-v2.0';
+const CACHE_NAME = 'nebatat-v4.0-hf';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',

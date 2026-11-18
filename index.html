@@ -70,6 +70,9 @@
         <a href="#quiz-section" class="leaf-nav-btn">
           <span>🎯 Mini Oyun</span>
         </a>
+        <button id="hf-lab-trigger-btn" class="leaf-nav-btn hf-special-btn" type="button" title="Hugging Face Devasa Veri İstasyonu">
+          <span>🤗 HF İstasyonu</span>
+        </button>
         <button id="wizard-trigger-btn" class="wizard-btn-trigger" type="button" title="Adım adım tür teşhis et">
           <span>🔮 Akıllı Teşhis</span>
         </button>
@@ -124,17 +127,17 @@
 
       <!-- Hızlı Sayaç Rozetleri -->
       <div class="hero-stats-row">
-        <div class="stat-pill">
-          <span>🌿</span> <strong>60</strong> Doğrulanmış Botanik Tür
+        <div class="stat-pill" style="border-color: rgba(245, 158, 11, 0.6); background: rgba(245, 158, 11, 0.1);">
+          <span>🤗</span> <strong>208</strong> Canlı Botanik & Mikoloji Türü
         </div>
         <div class="stat-pill">
-          <span>🍄</span> <strong>14</strong> Yabani & Tıbbi Mantar
+          <span>🍄</span> <strong>114</strong> Yabani & Tıbbi Mantar
+        </div>
+        <div class="stat-pill">
+          <span>🌿</span> <strong>88</strong> Şifalı & Salon Bitkisi
         </div>
         <div class="stat-pill">
           <span>🐱</span> <strong>%100</strong> Evcil Hayvan Analizi
-        </div>
-        <div class="stat-pill">
-          <span>🇹🇷</span> <strong>7</strong> Coğrafi Flora Bölgesi
         </div>
       </div>
     </section>
@@ -177,6 +180,11 @@
           <span>Tüm Türler</span>
           <span class="tab-count" data-count-for="all">0</span>
         </button>
+        <button class="category-tab-btn" data-category="hf_all" type="button" style="border-color: rgba(245, 158, 11, 0.6);">
+          <span class="tab-icon">🤗</span>
+          <span>Hugging Face Atlası</span>
+          <span class="tab-count" data-count-for="hf_all">0</span>
+        </button>
         <button class="category-tab-btn" data-category="ev_bitkisi" type="button">
           <span class="tab-icon">🪴</span>
           <span>Ev ve Salon Bitkileri</span>
@@ -208,6 +216,12 @@
       <div class="sub-filter-bar">
         <div class="filter-pills-group">
           <span style="font-size:0.8rem; color:var(--gold-400); font-weight:700;">HIZLI FİLTRE:</span>
+          <button class="sub-filter-pill hf-pill" data-subfilter="hf_only" type="button">
+            <span>🤗 Hugging Face</span>
+          </button>
+          <button class="sub-filter-pill" data-subfilter="local_only" type="button">
+            <span>⭐ Yerel Seçki</span>
+          </button>
           <button class="sub-filter-pill" data-subfilter="cat_safe" type="button">
             <span>🐱 Kedi Dostu</span>
           </button>
@@ -570,6 +584,37 @@
         <button id="wizard-close-btn" class="modal-close-btn" type="button" title="Kapat">✕</button>
         <div id="wizard-dynamic-content" class="modal-content-body" style="padding:36px;">
           <!-- JavaScript sihirbaz adımları -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         HUGGING FACE CANLI BİYOLOJİ İSTASYONU & AI HUB
+         ========================================== -->
+    <div id="hf-modal" class="modal-overlay">
+      <div class="modal-container hf-modal-container">
+        <button id="hf-modal-close-btn" class="modal-close-btn" type="button" title="Kapat">✕</button>
+        <div class="hf-modal-body">
+          <div class="hf-modal-header">
+            <div class="hf-modal-title-row">
+              <span class="hf-brand-emblem">🤗</span>
+              <div>
+                <h2 class="hf-modal-title">Hugging Face Canlı Biyoloji İstasyonu</h2>
+                <span class="hf-modal-sub">Açık Kaynak Botanik & Mikoloji Veri Ağı & Vision AI Teşhis Simülatörü</span>
+              </div>
+            </div>
+            <!-- Modal Sekmeleri -->
+            <div class="hf-modal-tabs">
+              <button class="hf-tab-btn active" data-hf-tab="hub-search" type="button">🛰️ Canlı HF Hub Arama</button>
+              <button class="hf-tab-btn" data-hf-tab="ai-vision" type="button">🔬 Vision AI Teşhis</button>
+              <button class="hf-tab-btn" data-hf-tab="uci-tree" type="button">⚖️ UCI Mantar Ağacı</button>
+              <button class="hf-tab-btn" data-hf-tab="datasets-stat" type="button">📊 Arşiv & İstatistikler</button>
+            </div>
+          </div>
+
+          <div id="hf-tab-content" class="hf-tab-content-area">
+            <!-- JavaScript ile doldurulur -->
+          </div>
         </div>
       </div>
     </div>
