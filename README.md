@@ -3,7 +3,6 @@
 [![Nebâtat](https://img.shields.io/badge/Neb%C3%A2tat-Botanik%20Atlas%C4%B1-059669?style=for-the-badge&logo=leaf&logoColor=white)](https://utrucce.github.io/nebatat/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
 [![Author](https://img.shields.io/badge/Author-Sertan%20%C3%87ubukcu-F59E0B?style=for-the-badge)](https://github.com/Utrucce)
-[![ALEF](https://img.shields.io/badge/Ecosystem-ALEF-34D399?style=for-the-badge)](https://github.com/Utrucce)
 
 > **"Doğanın Şifası, Zehri ve Gizemi Tek Bir Atlaste."**  
 > Evindeki salon çiçeği kedin için güvenli mi? Ormanda karşılaştığın mantar lezzetli bir Kanlıca mı, yoksa ölümcül bir Köygöçüren mi?  
@@ -55,5 +54,4 @@
 
 ## 👨‍💻 Emeği Geçenler
 - **Konsept, Tasarım ve Geliştirme:** Sertan Çubukcu
-- **Ekosistem:** ALEF Dijital Çözümleri
 - **Lisans:** MIT License

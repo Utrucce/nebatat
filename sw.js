@@ -1,4 +1,4 @@
-const CACHE_NAME = 'nebatat-v1.0';
+const CACHE_NAME = 'nebatat-v2.0';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -7,7 +7,6 @@ const ASSETS_TO_CACHE = [
   './manifest.json',
   './data/flora.js',
   './data/flora.json',
-  './assets/logo_alef.png',
   './assets/logo_sertan.png',
   './assets/pitrak.png',
   './assets/bg_botanic.jpg'
@@ -46,7 +45,6 @@ self.addEventListener('fetch', (event) => {
       return fetch(event.request).then((networkResponse) => {
         return networkResponse;
       }).catch(() => {
-        // Fallback for offline navigation
         if (event.request.mode === 'navigate') {
           return caches.match('./index.html');
         }

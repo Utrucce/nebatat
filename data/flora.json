@@ -31,7 +31,7 @@
     },
     "turkey_distribution": "Tüm Türkiye'de evlerde, ofislerde ve seralarda en popüler salon bitkisidir.",
     "description": "Zümrüt yeşili heybetli yapraklarındaki yarıklar ve delikler, tropikal yağmur ormanlarında şiddetli rüzgarlara direnmesini ve alt yapraklara güneş süzülmesini sağlar.",
-    "image": "https://images.unsplash.com/photo-1614594975525-e45190c55d0b?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/monstera-deliciosa.jpg",
     "icon": "🌿",
     "tags": [
       "monstera",
@@ -74,7 +74,7 @@
     },
     "turkey_distribution": "Türkiye'de salonlarda, hastanelerde ve ofislerde en çok hediye edilen zarif saksı çiçeğidir.",
     "description": "Bembeyaz yelken biçimli brakteleri ve derin yeşil yapraklarıyla sadeliğin ve huzurun sembolüdür. Susuz kaldığında boynunu büküp su verilince saatler içinde dikleşen hassas bir iletişim ustasıdır.",
-    "image": "https://images.unsplash.com/photo-1593691509543-c55fb32e7355?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/spathiphyllum-wallisii.jpg",
     "icon": "🕊️",
     "tags": [
       "barış çiçeği",
@@ -116,7 +116,7 @@
     },
     "turkey_distribution": "Geleneksel Türk evlerinde 'Boyu bir metreyi geçerse ev sahibi olunur' inancıyla nesiller boyu çoğaltılır.",
     "description": "Sarı şeritli kılıç biçimli dimdik yapraklarıyla sabrın ve dayanıklılığın canlı anıtıdır. Haftalarca unutulsa bile neşesinden ve yeşilinden hiçbir şey kaybetmez.",
-    "image": "https://images.unsplash.com/photo-1598880940371-c756e015fea1?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/dracaena-trifasciata.jpg",
     "icon": "🗡️",
     "tags": [
       "paşa kılıcı",
@@ -158,7 +158,7 @@
     },
     "turkey_distribution": "Eski salonlarda çok yaygındır ancak toksisitesi nedeniyle bilinçli tüketicilerce yer değiştirilmektedir.",
     "description": "Göz alıcı krem ve fıstık yeşili desenli görkemli yaprakları vardır. Sabahları yaprak uçlarından damlayan su damlacıkları nedeniyle halk arasında 'Ağlayan Çiçek' olarak da bilinir.",
-    "image": "https://images.unsplash.com/photo-1600411833196-7c1f6b1a8b90?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/dieffenbachia-seguine.jpg",
     "icon": "⚠️",
     "tags": [
       "difenbahya",
@@ -200,7 +200,7 @@
     },
     "turkey_distribution": "Balkon saksılarından ve askılıklardan sarkan sürgünleriyle Türkiye'nin en sevilen zararsız çiçeğidir.",
     "description": "İnce uzun alacalı yaprakları ve uçlarından fışkıran minik yavru kurdele fideleriyle neşe saçar. Evcil hayvan sahiplerinin gönül rahatlığıyla evinde büyütebileceği en sadık dosttur.",
-    "image": "https://images.unsplash.com/photo-1572688484437-c16583bc30b4?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/chlorophytum-comosum.jpg",
     "icon": "🌱",
     "tags": [
       "kurdele çiçeği",
@@ -243,7 +243,7 @@
     },
     "turkey_distribution": "Kafelerde, ev kütüphanelerinde tavandan ve raflardan sarkıtılarak çok yaygın kullanılır.",
     "description": "Altın sarısı mermer desenleriyle bezenmiş kalp şeklindeki yaprakları hızla uzar ve evinize tropikal bir sarmaşık şelalesi görüntüsü kazandırır.",
-    "image": "https://images.unsplash.com/photo-1596724855577-d64e42777174?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/epipremnum-aureum.jpg",
     "icon": "🍃",
     "tags": [
       "pothos",
@@ -286,7 +286,7 @@
     },
     "turkey_distribution": "Kurumsal ofislerde ve modern evlerde en çok tercih edilen bitkidir.",
     "description": "Cilalanmış gibi parıldayan zümrüt rengi kalın etli yaprakları ve dimdik sürgünleriyle adeta canlı bir sanat eseri gibidir. İhmale inanılmaz derecede dayanıklıdır.",
-    "image": "https://images.unsplash.com/photo-1632207691143-643e2a9a9361?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/zamioculcas-zamiifolia.jpg",
     "icon": "✨",
     "tags": [
       "zamia",
@@ -328,7 +328,7 @@
     },
     "turkey_distribution": "Botanik ve estetik tutkunlarının evlerinde baş tacıdır.",
     "description": "Gümüşi yeşil çizgilerle bezeli devasa yuvarlak yaprakları ressam fırçasından çıkmış gibidir. Gece uyuyan, sabah uyanan dinamik yapısıyla adeta nefes alan bir ev arkadaşıdır.",
-    "image": "https://images.unsplash.com/photo-1620127682229-33388276e540?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/calathea-orbifolia.jpg",
     "icon": "🙏",
     "tags": [
       "dua çiçeği",
@@ -371,7 +371,7 @@
     },
     "turkey_distribution": "Türkiye'de balkonlarda ve pencere önlerinde çok yaygın yetiştirilir.",
     "description": "Etli tombul yeşim taşı rengindeki yaprakları ve yaşlandıkça odunlaşan gövdesiyle minyatür bir bonsai ağacını andırır. Yıllarca zahmetsizce büyür ve sabrı öğretir.",
-    "image": "https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/crassula-ovata.jpg",
     "icon": "💰",
     "tags": [
       "para çiçeği",
@@ -413,7 +413,7 @@
     },
     "turkey_distribution": "Akdeniz ve Ege'de bahçelerde, diğer bölgelerde ev içi pencere önlerinde yaygındır.",
     "description": "Etli ve tırtıklı yapraklarında doğanın en saf yanık merhemini ve nemlendiricisini barındıran bin yıllık yaşayan bir ecza dolabıdır.",
-    "image": "https://images.unsplash.com/photo-1596547609652-9cf5d8d76921?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/aloe-barbadensis.jpg",
     "icon": "🌵",
     "tags": [
       "aloe vera",
@@ -455,7 +455,7 @@
     },
     "turkey_distribution": "Anadolu'nun hemen tüm çayır ve bayırlarında, Kazdağları'nda, Ege ve Karadeniz yaylalarında boldur.",
     "description": "Güneşe tutulduğunda yapraklarındaki minik yağ kesecikleri delik gibi parladığı için 'binbirdelik otu' denmiştir. Sarı çiçekleri parmaklar arasında ezildiğinde kırmızı kan rengi yağ salgılar.",
-    "image": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/hypericum-perforatum.jpg",
     "icon": "🌼",
     "tags": [
       "sarı kantaron",
@@ -498,7 +498,7 @@
     },
     "turkey_distribution": "Ege ve Akdeniz maki yamaçlarında, özellikle Muğla, Antalya ve Aydın dağlarında doğal olarak yetişir.",
     "description": "Kadifemsi tüylü gri-yeşil yaprakları ezildiğinde etrafa yayılan asil koku Akdeniz bilgeliğini taşır. Latincede 'salvare' yani 'hayat kurtarmak' fiilinden türemiştir.",
-    "image": "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/salvia-officinalis.jpg",
     "icon": "🍃",
     "tags": [
       "adaçayı",
@@ -541,7 +541,7 @@
     },
     "turkey_distribution": "Mayıs ayında Türkiye'nin dört bir yanındaki tarlaları ve yol boylarını bembeyaz bir halı gibi kaplar.",
     "description": "Altın sarısı konik göbeği ve kar beyazı yapraklarıyla doğanın en şefkatli teskin edicisidir. Gerçek tıbbi papatyanın çiçek göbeği ikiye kesildiğinde içi boştur ve mis gibi elma kokar.",
-    "image": "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/matricaria-chamomilla.jpg",
     "icon": "🌼",
     "tags": [
       "papatya",
@@ -584,7 +584,7 @@
     },
     "turkey_distribution": "Denizli Pamukkale yaylaları, Muğla, Antalya, İzmir ve Aydın dağlarında devasa tarlalarda ve yabani olarak yetişir.",
     "description": "Yaz sıcağında dağ esintisiyle burnunuza çarpan o keskin ve iştah açıcı rayiha İzmir kekiğidir. Anadolu mutfağının ve halk hekimliğinin vazgeçilmez tacıdır.",
-    "image": "https://images.unsplash.com/photo-1515586000433-45406d8e6662?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/origanum-onites.jpg",
     "icon": "🌿",
     "tags": [
       "kekik",
@@ -628,7 +628,7 @@
     },
     "turkey_distribution": "Türkiye'de tıbbi ve aromatik bitki bahçelerinde yaygın tarımı yapılmaktadır.",
     "description": "Kirpi dikenlerini andıran konik bronz çiçek tablası ve etrafındaki göz alıcı mor yapraklarıyla hem bir estetik ziyafet hem de güçlü bir bağışıklık kalesidir.",
-    "image": "https://images.unsplash.com/photo-1596728325488-58c87691e9af?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/echinacea-purpurea.jpg",
     "icon": "🌸",
     "tags": [
       "ekinezya",
@@ -671,7 +671,7 @@
     },
     "turkey_distribution": "Türkiye'nin tüm bahçelerinde, su kenarlarında ve balkon saksılarında yetişir.",
     "description": "Tırnağınızla yaprağına hafifçe dokunduğunuzda fışkıran o kristalize mentol serinliği, zihni berraklaştırır ve bedeni tazeler.",
-    "image": "https://images.unsplash.com/photo-1628556270448-4d4e4148e1b1?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/mentha-piperita.jpg",
     "icon": "🍃",
     "tags": [
       "nane",
@@ -714,7 +714,7 @@
     },
     "turkey_distribution": "Ege, Akdeniz ve Marmara'nın nemli vadi tabanlarında yabani ve kültür olarak bulunur.",
     "description": "Yapraklarını parmaklarınızla ezdiğinizde etrafa taptaze sıkılmış limon kabuğu kokusu saçar. İbn-i Sina'nın 'Ruhu ferahlatan ve kalbi sevindiren ot' diye övdüğü şifa pınarıdır.",
-    "image": "https://images.unsplash.com/photo-1515586000433-45406d8e6662?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/melissa-officinalis.jpg",
     "icon": "🍋",
     "tags": [
       "melisa",
@@ -757,7 +757,7 @@
     },
     "turkey_distribution": "Ege ve Akdeniz sahillerinde, Bodrum, Antalya, İzmir otoyol refüjlerinde boylu boyunca uzanır.",
     "description": "Zarafetle açan pembe ve beyaz çiçeklerinin arkasında doğanın en amansız kalp zehrini saklar. Yaprağı, çiçeği, kökü, sütü hatta dalından çıkan duman bile öldürücüdür.",
-    "image": "https://images.unsplash.com/photo-1598880940371-c756e015fea1?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/nerium-oleander.jpg",
     "icon": "☠️",
     "tags": [
       "zakkum",
@@ -801,7 +801,7 @@
     },
     "turkey_distribution": "Karadeniz (Bolu, Trabzon, Rize), Kuzey Marmara (Belgrad Ormanı) ve Torosların nemli orman açıklıklarında biter.",
     "description": "Morumsu çan çiçekleri ve böğürtlene benzeyen parlak siyah meyveleri vardır. Yalnızca 2-3 meyvesi minik bir çocuğu, 10 meyvesi bir yetişkini öldürmeye yeterlidir.",
-    "image": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/atropa-belladonna.jpg",
     "icon": "⚠️",
     "tags": [
       "güzelavrat otu",
@@ -844,7 +844,7 @@
     },
     "turkey_distribution": "Türkiye'nin yedi bölgesinde tarla kenarlarında, yol boylarında ve dere yataklarında yaygındır.",
     "description": "Maydanoza benzeyen dantelimsi yaprakları ve sapındaki mor-kırmızı leke benekleriyle tanınır. Ezildiğinde burna fare idrarına benzeyen nahoş bir koku gelir.",
-    "image": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/conium-maculatum.jpg",
     "icon": "🧪",
     "tags": [
       "baldıran",
@@ -887,7 +887,7 @@
     },
     "turkey_distribution": "Karadeniz ve Kuzey Marmara ormanlarında, Kaçkar eteklerinde doğal olarak görülür.",
     "description": "Bir sap üzerinde dizili, iç kısmı çilli benekli nefes kesici mor yüksük çiçekleriyle ormanların en büyüleyici fakat en ölümcül tuzaklarından biridir.",
-    "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/digitalis-purpurea.jpg",
     "icon": "🔔",
     "tags": [
       "yüksükotu",
@@ -930,7 +930,7 @@
     },
     "turkey_distribution": "Akdeniz, Ege ve Güneydoğu Anadolu'da bahçe kenarlarında palmiye gibi devasa boyutlara ulaşır.",
     "description": "Kene böceğine benzeyen desenli parlak tohumları ve bordo renkli dev yıldız yapraklarıyla heybetli bir bitkidir. Ancak tohumundaki risin, kobradan ve siyanürden katbekat güçlüdür.",
-    "image": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/ricinus-communis.jpg",
     "icon": "⚠️",
     "tags": [
       "hint yağı",
@@ -972,7 +972,7 @@
     },
     "turkey_distribution": "İstanbul Belgrad Ormanları, Şile, Bolu, Kastamonu, Bursa Uludağ ve Karadeniz ormanlarında sonbaharda boldur.",
     "description": "Zeytuni yeşilimsi sarı şapkası, bembeyaz lamelleri, gövdesindeki beyaz yüzüğü (eteği) ve kök tabanındaki belirgin çanağı (volva) ile tanınır. Bir tanesi bile koca bir aileyi yok edebilir.",
-    "image": "https://images.unsplash.com/photo-1543362906-acfc16c67564?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/amanita-phalloides.jpg",
     "icon": "🍄",
     "tags": [
       "köygöçüren",
@@ -1015,7 +1015,7 @@
     },
     "turkey_distribution": "Bolu Abant gölü çevresi, Ilgaz Dağı, Çamlıhemşin ve Doğu Karadeniz çam ormanlarında sonbaharda sıkça görülür.",
     "description": "Kıpkırmızı kadife şapkasının üzerindeki minik beyaz pamukçuk benekleriyle masalların ve çizgi filmlerin vazgeçilmez simgesidir. Ne var ki bu masalın sonu hastanede biter.",
-    "image": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/amanita-muscaria.jpg",
     "icon": "🍄",
     "tags": [
       "sinek mantarı",
@@ -1058,7 +1058,7 @@
     },
     "turkey_distribution": "Kastamonu, Sinop, Bolu, Karabük, Bursa ve Ege çam ormanlarında sonbaharın en büyük bayramıdır.",
     "description": "Turuncu renkli halkalı şapkası, kesildiğinde havuç rengi turuncu süt sızdırması ve zamanla hafifçe bakır yeşiline dönmesiyle kendine has güvenli bir imzaya sahiptir.",
-    "image": "https://images.unsplash.com/photo-1546768292-fb12f6c92568?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/lactarius-deliciosus.jpg",
     "icon": "🍲",
     "tags": [
       "kanlıca",
@@ -1102,7 +1102,7 @@
     },
     "turkey_distribution": "Muğla, Fethiye, Antalya Akseki, Aydın, Konya Beyşehir ve Karadeniz sedir ve çam ormanlarında baharda biter.",
     "description": "Bal peteğini andıran girintili çıkıntılı odacıklı şapkası ve içi bembeyaz boş boru sapıyla ormanların saklı hazinesidir. Baharın gelişini müjdeleyen doğanın en kıymetli mücevheridir.",
-    "image": "https://images.unsplash.com/photo-1546768292-fb12f6c92568?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/morchella-esculenta.jpg",
     "icon": "👑",
     "tags": [
       "kuzugöbeği",
@@ -1146,7 +1146,7 @@
     },
     "turkey_distribution": "Bolu, Düzce, Kastamonu, Trabzon ve Marmara kayın ormanlarında bolca toplanıp ihraç edilir.",
     "description": "Fırından yeni çıkmış parlak bir somun ekmeği andıran kahverengi tombik şapkası ve kalın beyaz bacağıyla mantarların tartışmasız kralıdır. Şapka altında lamel yerine süngerimsi gözenekler bulunur.",
-    "image": "https://images.unsplash.com/photo-1546768292-fb12f6c92568?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/boletus-edulis.jpg",
     "icon": "🍄",
     "tags": [
       "porçini",
@@ -1190,7 +1190,7 @@
     },
     "turkey_distribution": "Ege ve Akdeniz zeytinliklerinde ve meşeliklerinde kütük diplerinde demetler halinde büyür.",
     "description": "Turuncu-sarı rengiyle lezzetli Sarı Kız (Çanterel) mantarını taklit eder. Ancak ağaç kütüklerinde öbek öbek büyümesi ve gece parlamasıyla ayırt edilir. Zehirlenme vakalarının en yaygın sebebidir.",
-    "image": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/omphalotus-olearius.jpg",
     "icon": "✨",
     "tags": [
       "ağulu mantar",
@@ -1233,7 +1233,7 @@
     },
     "turkey_distribution": "Hakkari Cilo Dağları, Van, Şırnak, Batman Sason ve Adıyaman Nemrut yamaçlarında baharda 15-20 gün açar.",
     "description": "Ters dönmüş kadehleri andıran alev kırmızısı ve turuncu çiçekleri, tepesindeki yeşil taç yaprakları ve sabahları çiçeklerinden damlayan gözyaşı nektarıyla Anadolu'nun en asil çiçeğidir.",
-    "image": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/fritillaria-imperialis.jpg",
     "icon": "🥀",
     "tags": [
       "ters lale",
@@ -1277,7 +1277,7 @@
     },
     "turkey_distribution": "Dünya üzerinde sadece Ankara Gölbaşı Mogan Gölü kıyısındaki koruma alanlarında yetişir.",
     "description": "Huni biçimindeki ipeksi taç yaprakları rüzgarda dalgalanırken parıldayan büyüleyici bir kırmızı-mor tona bürünür. Başkentin yeryüzüne armağan ettiği en narin biyoçeşitlilik mucizesidir.",
-    "image": "https://images.unsplash.com/photo-1596728325488-58c87691e9af?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/centaurea-tchihatcheffii.jpg",
     "icon": "💖",
     "tags": [
       "sevgi çiçeği",
@@ -1321,7 +1321,7 @@
     },
     "turkey_distribution": "Yalnızca Afyonkarahisar ve Konya sınırındaki Eber ve Akşehir Gölleri havzasında yaşar.",
     "description": "Altın sarısı iri bezelye çiçekleriyle baharda Eber Gölü sazlıklarını aydınlatır. Evrimsel biyoloji ve botanik dünyasının üzerinde titrediği paha biçilemez bir doğa mucizesidir.",
-    "image": "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/thermopsis-turcica.jpg",
     "icon": "🌟",
     "tags": [
       "eber sarısı",
@@ -1364,7 +1364,7 @@
     },
     "turkey_distribution": "Yalnızca Balıkesir ve Çanakkale arasındaki Kazdağları'nın 1000 metre üzeri zirvelerinde yaşar.",
     "description": "Dünyanın en yüksek oksijen oranına sahip Kazdağları'nın bekçisidir. Dimdik yukarı bakan silindirik dev kozalakları ve piramidal tacıyla antik mitolojinin yaşayan tanığıdır.",
-    "image": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/abies-nordmanniana-equi-trojani.jpg",
     "icon": "🌲",
     "tags": [
       "kazdağı göknarı",
@@ -1407,7 +1407,7 @@
     },
     "turkey_distribution": "Antalya, Isparta ve Konya Toroslar kuşağında 1000-1600 metre rakımlarda.",
     "description": "Leylak ve koyu mor çizgili taç yapraklarının ortasındaki turuncu tepecikleriyle karların henüz eridiği taşlık yamaçlarda baharı ilk selamlayan narin bir Anadolu perisidir.",
-    "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/crocus-antalyensis.jpg",
     "icon": "💜",
     "tags": [
       "antalya çiğdemi",
@@ -1450,7 +1450,7 @@
     },
     "turkey_distribution": "Türkiye'de ev ve dükkan girişlerinde en çok görülen heybetli bitkidir.",
     "description": "Şemsiye gibi dairesel dizilmiş parmak biçimli alacalı parlak yapraklarıyla neşeli ve gösterişli bir salon çınarıdır.",
-    "image": "https://images.unsplash.com/photo-1598880940371-c756e015fea1?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/schefflera-arboricola.jpg",
     "icon": "☂️",
     "tags": [
       "şeflera",
@@ -1492,7 +1492,7 @@
     },
     "turkey_distribution": "Geleneksel ve modern salonlarda en sevilen ağaçsı bitkidir.",
     "description": "Zarif sarkık dalları ve minik parlak zümrüt yapraklarıyla bir iç mekan korusu yaratır. Yeri değiştirildiğinde kapris yapıp yaprak dökmesiyle ünlüdür.",
-    "image": "https://images.unsplash.com/photo-1597055181300-e3633a917c9c?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/ficus-benjamina.jpg",
     "icon": "🌳",
     "tags": [
       "benjamin",
@@ -1534,7 +1534,7 @@
     },
     "turkey_distribution": "Kutlama ve özel günlerin en gözde salon hediyesidir.",
     "description": "Verniklenmiş gibi parıldayan alev kırmızısı kalp brakteleri ve ortasındaki altın sarısı koçanıyla tutkunun ve egzotizmin temsilcisidir.",
-    "image": "https://images.unsplash.com/photo-1543257580-7269da773bf5?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/anthurium-andraeanum.jpg",
     "icon": "❤️",
     "tags": [
       "antoryum",
@@ -1576,7 +1576,7 @@
     },
     "turkey_distribution": "Isparta Kuyucak (Lavanta Kokulu Köy), Burdur ve Edirne mor vadileriyle dünyaca ünlüdür.",
     "description": "Morun en büyüleyici tonlarıyla dalgalanan tarlaları ve rüzgar estikçe ruhu yatıştıran o ebedi kokusuyla doğanın en zarif sakinleştiricisidir.",
-    "image": "https://images.unsplash.com/photo-1528183429752-a97d0bf99b5a?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/lavandula-angustifolia.jpg",
     "icon": "🪻",
     "tags": [
       "lavanta",
@@ -1620,7 +1620,7 @@
     },
     "turkey_distribution": "Akdeniz ve Ege kıyı kayalıklarında yabani çalı formunda fışkırır.",
     "description": "Çam iğnelerine benzeyen minik yaprakları ve gök mavisi çiçekleriyle daima diri kalan, zihni canlandıran Akdeniz rüzgarının ruhudur.",
-    "image": "https://images.unsplash.com/photo-1515586000433-45406d8e6662?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/rosmarinus-officinalis.jpg",
     "icon": "🌲",
     "tags": [
       "biberiye",
@@ -1663,7 +1663,7 @@
     },
     "turkey_distribution": "İlkbaharda Türkiye'deki tüm yeşil çimenliklerde sapsarı açar, sonra pamuk toplarına dönüşür.",
     "description": "Sapsarı güneş gibi parlayan çiçekleri zamanı gelince rüzgarla uçuşan tüy toplarına döner. Bir dilek tutulup üflenen çocukluk masalının arkasında dev bir karaciğer dostu yatar.",
-    "image": "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/taraxacum-officinale.jpg",
     "icon": "☀️",
     "tags": [
       "karahindiba",
@@ -1706,7 +1706,7 @@
     },
     "turkey_distribution": "Türkiye'nin her köşesinde, Karadeniz yaylalarında fındık altlarında boldur.",
     "description": "Dokunanı yakıp canını acıtsa da Anadolu köylüsünün 'dokunduğu yerde romatizma bırakmaz' dediği, şifasıyla can yakan bilge bir bitkidir.",
-    "image": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/urtica-dioica.jpg",
     "icon": "⚡",
     "tags": [
       "isırgan",
@@ -1749,7 +1749,7 @@
     },
     "turkey_distribution": "Doğu Karadeniz (Rize Kaçkarlar, Artvin) yüksek yaylalarında 2000 metre üzerinde yetişir.",
     "description": "Şövalye miğferini andıran koyu mavi ve menekşe renkli asil çiçeklerinin içinde bitkiler aleminin en hızlı etki eden sinir zehirlerinden birini gizler.",
-    "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/aconitum-napellus.jpg",
     "icon": "☠️",
     "tags": [
       "kurtboğan",
@@ -1792,7 +1792,7 @@
     },
     "turkey_distribution": "Türkiye'de tüm otoyol kenarlarında, çöplüklerde ve tarlalarda kendiliğinden biter.",
     "description": "Büyük beyaz borazan çiçekleri akşamları açar ve dikenli ceviz büyüklüğündeki meyveleriyle şeytani bir görünüme sahiptir. Zehirlenmesi en korkunç deliryum türüdür.",
-    "image": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/datura-stramonium.jpg",
     "icon": "⚠️",
     "tags": [
       "şeytan elması",
@@ -1836,7 +1836,7 @@
     },
     "turkey_distribution": "Doğu ve Batı Karadeniz'in dik dağ yamaçlarında pembe-mor ve sarı çiçekleriyle dev çalılıklar oluşturur.",
     "description": "İlkbaharda Kaçkar dağlarını mor bir masal diyarına çeviren nefes kesici ormangülleri, arıların nektarıyla birleştiğinde insanı komaya sokabilen efsanevi 'Deli Bal'ı doğurur.",
-    "image": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/rhododendron-ponticum.jpg",
     "icon": "🍯",
     "tags": [
       "ormangülü",
@@ -1879,7 +1879,7 @@
     },
     "turkey_distribution": "Bolu, Şile, Kastamonu, Sinop ve Karadeniz ormanlarında sarı sarı parıldar.",
     "description": "Trompet veya huni şeklindeki altın sarısı yapısı ve taze koparıldığında etrafa yaydığı kayısı andıran meyvemsi kokusuyla ormanların altın madalyalı lezzetidir.",
-    "image": "https://images.unsplash.com/photo-1546768292-fb12f6c92568?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/cantharellus-cibarius.jpg",
     "icon": "💛",
     "tags": [
       "çanterel",
@@ -1922,7 +1922,7 @@
     },
     "turkey_distribution": "Doğada tüm dere boylarındaki kavaklarda, ayrıca Türkiye genelinde mantar çadırlarında üretilir.",
     "description": "Deniz kabuğu veya istiridye gibi üst üste kat kat dizilmiş gri-kahverengi şapkalarıyla ormanların ve mutfakların en doyurucu et alternatifidir.",
-    "image": "https://images.unsplash.com/photo-1546768292-fb12f6c92568?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/pleurotus-ostreatus.jpg",
     "icon": "🦪",
     "tags": [
       "istiridye mantarı",
@@ -1964,7 +1964,7 @@
     },
     "turkey_distribution": "Kastamonu, Bolu, Toroslar ve Karadeniz çam ormanlarında nisan ayında çıkar.",
     "description": "Bal peteği düzeni yerine ceviz içi veya insan beyni kıvrımlarına benzeyen kahverengi dalgalı şapkasıyla ölümcül bir sahtekardır. Pişirilirken çıkan buharı dahi solunmamalıdır.",
-    "image": "https://images.unsplash.com/photo-1543362906-acfc16c67564?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/gyromitra-esculenta.jpg",
     "icon": "🧠",
     "tags": [
       "yalancı kuzugöbeği",
@@ -2007,7 +2007,7 @@
     },
     "turkey_distribution": "Dünyada sadece Antalya Kemer, Kumluca, Kaş ve Finike kıyı şeridinde yaşar.",
     "description": "Bir böceğin kanatlarını, gözlerini ve desenlerini birebir kopyalayan çiçeğiyle evrimin ve doğal kamuflajın zirvesidir. Likya antik uygarlığının yaşayan en narin mirasıdır.",
-    "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/ophrys-lycia.jpg",
     "icon": "🐝",
     "tags": [
       "likya orkidesi",
@@ -2051,7 +2051,7 @@
     },
     "turkey_distribution": "Yalnızca Aydın Kuşadası ve Söke çevresinde dünyada çok dar bir alanda yaşar.",
     "description": "2 metreyi aşan boyu ve devasa tüllü sapsarı çiçek başıyla Ege kıyılarının sarı taçlı sultanıdır. Yeryüzünde Aydın toprakları dışında hiçbir coğrafyada görülmez.",
-    "image": "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?w=800&auto=format&fit=crop&q=80",
+    "image": "assets/flora/rhaponticoides-mykalea.jpg",
     "icon": "👑",
     "tags": [
       "tüllüşah",

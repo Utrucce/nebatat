@@ -299,7 +299,7 @@ function createCardHTML(item) {
   return `
     <article class="flora-card" data-id="${item.id}">
       <div class="card-media-wrapper">
-        <img class="card-img" src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=800&auto=format&fit=crop&q=80'">
+        <img class="card-img" src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='assets/flora/monstera-deliciosa.jpg'">
         <span class="card-floating-badge ${badgeClass}">${badgeText}</span>
         <span class="card-category-tag">${item.category_title || 'Botanik'}</span>
       </div>
@@ -633,7 +633,7 @@ const quizQuestions = [
   {
     title: 'Köygöçüren Mantarı',
     latin: 'Amanita phalloides',
-    image: 'https://images.unsplash.com/photo-1543362906-acfc16c67564?w=800&auto=format&fit=crop&q=80',
+    image: 'assets/flora/amanita-phalloides.jpg',
     hint: 'Zeytuni şapkası ve eteği olan bu mantar ormanda iştah açıcı görünse de sence güvenli midir?',
     isSafe: false,
     explanation: 'DOĞRU! Köygöçüren Türkiye’deki mantar ölümlerinin %95’inden sorumludur. Bir tanesi bile karaciğeri tamamen iflas ettirir.'
@@ -641,7 +641,7 @@ const quizQuestions = [
   {
     title: 'Kanlıca Mantarı',
     latin: 'Lactarius deliciosus',
-    image: 'https://images.unsplash.com/photo-1546768292-fb12f6c92568?w=800&auto=format&fit=crop&q=80',
+    image: 'assets/flora/lactarius-deliciosus.jpg',
     hint: 'Kesildiğinde havuç rengi turuncu süt salgılayan Kastamonu ormanlarının meşhur mantarı yenir mi?',
     isSafe: true,
     explanation: 'TEBRİKLER! Kanlıca mantarı Anadolu’nun en lezzetli, en güvenilir yenen yaban mantarlarından biridir.'
@@ -649,7 +649,7 @@ const quizQuestions = [
   {
     title: 'Zakkum Çiçeği',
     latin: 'Nerium oleander',
-    image: 'https://images.unsplash.com/photo-1598880940371-c756e015fea1?w=800&auto=format&fit=crop&q=80',
+    image: 'assets/flora/nerium-oleander.jpg',
     hint: 'Yol refüjlerinde pembe açan zakkumun yapraklarından şifalı çay demlenebilir mi?',
     isSafe: false,
     explanation: 'KESİNLİKLE HAYIR! Zakkum içerdiği oleandrin ile doğrudan kalbi durduran ölümcül bir kardiyotoksindir. Tek bir yaprağı bile öldürebilir.'
@@ -657,7 +657,7 @@ const quizQuestions = [
   {
     title: 'Kuzugöbeği Mantarı',
     latin: 'Morchella esculenta',
-    image: 'https://images.unsplash.com/photo-1546768292-fb12f6c92568?w=800&auto=format&fit=crop&q=80',
+    image: 'assets/flora/morchella-esculenta.jpg',
     hint: 'Bal peteği şeklinde odacıklı şapkası olan bahar aylarının bu kıymetli mantarı güvenli midir?',
     isSafe: true,
     explanation: 'HARİKA! Pişirildiğinde dünyanın en değerli ve lezzetli gurme mantarlarındandır.'
@@ -665,7 +665,7 @@ const quizQuestions = [
   {
     title: 'Difenbahya (Ağlayan Çiçek)',
     latin: 'Dieffenbachia seguine',
-    image: 'https://images.unsplash.com/photo-1600411833196-7c1f6b1a8b90?w=800&auto=format&fit=crop&q=80',
+    image: 'assets/flora/dieffenbachia-seguine.jpg',
     hint: 'Salonlarda çok sevilen bu bitkiyi kediniz veya köpeğiniz çiğnerse ne olur?',
     isSafe: false,
     explanation: 'ÇOK DİKKAT! Özsuyundaki iğnemsi kristaller ses tellerinde felç ve soluk borusunda boğulmaya varan şişme yapar. Çocuk ve evcil hayvandan kesinlikle uzak tutulmalıdır.'
@@ -673,7 +673,7 @@ const quizQuestions = [
   {
     title: 'Kurdele Çiçeği',
     latin: 'Chlorophytum comosum',
-    image: 'https://images.unsplash.com/photo-1572688484437-c16583bc30b4?w=800&auto=format&fit=crop&q=80',
+    image: 'assets/flora/chlorophytum-comosum.jpg',
     hint: 'Askılı saksılardan sarkan bu popüler ev bitkisi evcil hayvanlar için zehirli midir?',
     isSafe: true,
     explanation: 'DOĞRU! Kurdele çiçeği %100 evcil hayvan dostudur. Zehirsizdir ve havadaki toksinleri temizler.'
