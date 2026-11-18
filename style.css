@@ -1,0 +1,1801 @@
+/* ===================================================
+   NEBÂTAT - BOTANİK ATLASI VE TOKSİSİTE REHBERİ
+   Görsel Tasarım & Bitkisel Stil Sistemi
+   Hazırlayan: Sertan Çubukcu • ALEF Ekosistemi
+   =================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap');
+
+:root {
+  --bg-deep: #021a14;
+  --bg-card: rgba(4, 38, 29, 0.75);
+  --bg-card-hover: rgba(6, 52, 40, 0.88);
+  --glass-border: rgba(52, 211, 153, 0.22);
+  --glass-glow: rgba(16, 185, 129, 0.35);
+
+  --emerald-950: #011913;
+  --emerald-900: #064e3b;
+  --emerald-800: #065f46;
+  --emerald-700: #047857;
+  --emerald-600: #059669;
+  --emerald-500: #10b981;
+  --emerald-400: #34d399;
+  --emerald-300: #6ee7b7;
+  --emerald-100: #d1fae5;
+
+  --gold-500: #f59e0b;
+  --gold-400: #fbbf24;
+  --gold-300: #fde68a;
+  --gold-glow: rgba(245, 158, 11, 0.35);
+
+  --danger-500: #ef4444;
+  --danger-900: #450a0a;
+  --warning-500: #f97316;
+  --safe-500: #10b981;
+
+  --text-main: #f0fdf4;
+  --text-muted: #a7f3d0;
+  --text-sub: #cbd5e1;
+
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-title: 'Cinzel', serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  --radius-leaf: 24px 6px 24px 6px;
+  --radius-leaf-alt: 6px 24px 6px 24px;
+  --radius-card: 20px;
+
+  --shadow-leaf: 0 10px 30px -5px rgba(0, 0, 0, 0.6), 0 0 15px 1px rgba(16, 185, 129, 0.15);
+  --shadow-glow: 0 0 25px rgba(16, 185, 129, 0.35);
+  --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reset & Temel Yapı */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-deep);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.08) 0%, transparent 45%),
+    linear-gradient(180deg, rgba(2, 26, 20, 0.88) 0%, rgba(2, 26, 20, 0.96) 100%),
+    url('assets/bg_botanic.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Scrollbar Tasarımı */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #021a14;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--emerald-600), var(--emerald-800));
+  border-radius: 10px;
+  border: 2px solid #021a14;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--emerald-500);
+}
+
+/* Floating Botanical Particles Canvas */
+#botanical-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+/* Uygulama Konteyneri */
+.app-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+/* ===================================================
+   ÜST BAŞLIK (HEADER & NAVBAR)
+   =================================================== */
+.main-header {
+  position: sticky;
+  top: 16px;
+  z-index: 100;
+  margin: 16px 0 24px;
+  padding: 12px 24px;
+  background: rgba(3, 31, 23, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-leaf);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  transition: var(--transition-smooth);
+}
+
+.main-header:hover {
+  border-color: rgba(52, 211, 153, 0.4);
+  box-shadow: 0 12px 40px rgba(16, 185, 129, 0.2);
+}
+
+/* Header Sol Logo (ALEF) */
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+}
+
+.logo-circle-wrapper {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, var(--gold-400), var(--emerald-400));
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s ease;
+}
+
+.logo-circle-wrapper:hover {
+  transform: rotate(12deg) scale(1.08);
+}
+
+.brand-logo-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #ffffff;
+}
+
+.brand-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: var(--font-title);
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  background: linear-gradient(135deg, #ffffff 10%, #a7f3d0 40%, var(--gold-400) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  line-height: 1.1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-title .leaf-accent {
+  font-size: 1.3rem;
+  filter: drop-shadow(0 0 8px rgba(52, 211, 153, 0.6));
+}
+
+.brand-subtitle {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Header Hızlı Aksiyon Butonları */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.leaf-nav-btn {
+  background: rgba(6, 78, 59, 0.45);
+  color: var(--text-main);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  padding: 8px 16px;
+  border-radius: var(--radius-leaf);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition-smooth);
+  text-decoration: none;
+}
+
+.leaf-nav-btn:hover {
+  background: rgba(16, 185, 129, 0.25);
+  border-color: var(--emerald-400);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  color: #ffffff;
+}
+
+.leaf-nav-btn.danger-btn {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.35);
+  color: #fca5a5;
+}
+
+.leaf-nav-btn.danger-btn:hover {
+  background: rgba(239, 68, 68, 0.3);
+  border-color: var(--danger-500);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+}
+
+/* Header Sağ Logo (Sertan Çubukcu) */
+.header-author-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 12px 4px 4px;
+  background: rgba(6, 78, 59, 0.35);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 30px;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.header-author-badge:hover {
+  background: rgba(6, 78, 59, 0.65);
+  border-color: var(--gold-400);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
+  transform: translateY(-2px);
+}
+
+.author-logo-img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold-400);
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.author-title {
+  font-size: 0.68rem;
+  color: var(--gold-300);
+  letter-spacing: 0.5px;
+}
+
+/* ===================================================
+   HERO BÖLÜMÜ (GİRİŞ & ARAMA)
+   =================================================== */
+.hero-section {
+  text-align: center;
+  padding: 40px 20px 30px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.hero-tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  border-radius: 30px;
+  color: var(--emerald-300);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  backdrop-filter: blur(8px);
+}
+
+.hero-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 16px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.hero-heading span.gradient-text {
+  background: linear-gradient(135deg, #a7f3d0 0%, var(--emerald-400) 50%, var(--gold-400) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  font-size: 1.12rem;
+  color: var(--text-muted);
+  max-width: 760px;
+  margin: 0 auto 32px;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+/* Büyüleyici Botanik Arama Çubuğu */
+.search-wrapper {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto 28px;
+}
+
+.search-input-box {
+  width: 100%;
+  padding: 18px 60px 18px 56px;
+  font-size: 1.05rem;
+  font-family: var(--font-sans);
+  background: rgba(3, 31, 23, 0.85);
+  border: 2px solid var(--glass-border);
+  border-radius: 36px;
+  color: #ffffff;
+  outline: none;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.05);
+  transition: var(--transition-smooth);
+}
+
+.search-input-box:focus {
+  border-color: var(--emerald-400);
+  box-shadow: 0 12px 35px rgba(16, 185, 129, 0.35), inset 0 0 12px rgba(16, 185, 129, 0.2);
+}
+
+.search-input-box::placeholder {
+  color: rgba(167, 243, 208, 0.6);
+  font-size: 0.98rem;
+}
+
+.search-icon-left {
+  position: absolute;
+  left: 22px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  color: var(--emerald-400);
+  pointer-events: none;
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: var(--text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: var(--transition-smooth);
+}
+
+.search-clear-btn:hover {
+  background: rgba(239, 68, 68, 0.3);
+  color: #fff;
+}
+
+/* Hızlı İstatistik Rozetleri */
+.hero-stats-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.stat-pill {
+  padding: 8px 18px;
+  background: rgba(6, 78, 59, 0.35);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(6px);
+}
+
+.stat-pill strong {
+  color: #ffffff;
+}
+
+/* ===================================================
+   ACİL TOKSİSİTE & UZEM 114 RADARI
+   =================================================== */
+.emergency-radar-card {
+  margin: 0 auto 36px;
+  max-width: 1200px;
+  background: linear-gradient(135deg, rgba(69, 10, 10, 0.5) 0%, rgba(6, 44, 34, 0.85) 100%);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  border-radius: var(--radius-leaf);
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(14px);
+}
+
+.radar-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.radar-pulse-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.25);
+  border: 2px solid var(--danger-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  position: relative;
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 14px rgba(239, 68, 68, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.radar-text h4 {
+  font-size: 1.15rem;
+  color: #ffffff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.radar-text p {
+  font-size: 0.9rem;
+  color: #fca5a5;
+  margin-top: 4px;
+}
+
+.radar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.uzem-call-btn {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: var(--radius-leaf);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 18px rgba(239, 68, 68, 0.5);
+  border: 1px solid #fca5a5;
+  transition: var(--transition-smooth);
+}
+
+.uzem-call-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.7);
+}
+
+.first-aid-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  border-radius: var(--radius-leaf-alt);
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition-smooth);
+}
+
+.first-aid-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #fff;
+}
+
+/* ===================================================
+   BİTKİSEL KATEGORİ TUŞLARI (LEAF FILTER TABS)
+   =================================================== */
+.filter-section {
+  margin-bottom: 28px;
+}
+
+.category-tabs-scroll {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 8px 4px 16px;
+  scrollbar-width: thin;
+}
+
+.category-tab-btn {
+  background: rgba(4, 38, 29, 0.7);
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  padding: 12px 22px;
+  border-radius: var(--radius-leaf);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition-smooth);
+  backdrop-filter: blur(8px);
+}
+
+.category-tab-btn .tab-icon {
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+}
+
+.category-tab-btn .tab-count {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--emerald-300);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.category-tab-btn:hover {
+  background: rgba(6, 78, 59, 0.65);
+  border-color: var(--emerald-400);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.2);
+}
+
+.category-tab-btn:hover .tab-icon {
+  transform: scale(1.2);
+}
+
+.category-tab-btn.active {
+  background: linear-gradient(135deg, var(--emerald-700), var(--emerald-900));
+  border-color: var(--emerald-400);
+  color: #ffffff;
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.4), inset 0 0 12px rgba(52, 211, 153, 0.3);
+}
+
+.category-tab-btn.active .tab-count {
+  background: var(--emerald-400);
+  color: var(--emerald-950);
+}
+
+/* Alt Güvenlik Filtre Çubuğu (Kedi, Köpek, Çocuk) */
+.sub-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 12px 20px;
+  background: rgba(3, 31, 23, 0.6);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  margin-top: 8px;
+  backdrop-filter: blur(8px);
+}
+
+.filter-pills-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sub-filter-pill {
+  background: rgba(6, 78, 59, 0.3);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  color: var(--text-sub);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition-smooth);
+}
+
+.sub-filter-pill:hover {
+  background: rgba(16, 185, 129, 0.2);
+  color: #ffffff;
+}
+
+.sub-filter-pill.active {
+  background: var(--emerald-600);
+  border-color: var(--emerald-300);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+}
+
+.results-info-text {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.results-info-text strong {
+  color: var(--gold-400);
+}
+
+/* ===================================================
+   BİTKİ & MANTAR KARTLARI IZGARASI (GRID)
+   =================================================== */
+.flora-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 28px;
+  margin-top: 24px;
+}
+
+/* Tekil Bitki Kartı */
+.flora-card {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-leaf);
+  overflow: hidden;
+  box-shadow: var(--shadow-leaf);
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.flora-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--emerald-400), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.flora-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  background: var(--bg-card-hover);
+  border-color: rgba(52, 211, 153, 0.45);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(16, 185, 129, 0.25);
+}
+
+.flora-card:hover::before {
+  opacity: 1;
+}
+
+/* Kart Görsel Alanı */
+.card-media-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #021a14;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.flora-card:hover .card-img {
+  transform: scale(1.08);
+}
+
+/* Kart Üst Rozetleri */
+.card-floating-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-floating-badge.badge-safe {
+  background: rgba(16, 185, 129, 0.9);
+  color: #ffffff;
+  border: 1px solid #6ee7b7;
+}
+
+.card-floating-badge.badge-warning {
+  background: rgba(245, 158, 11, 0.9);
+  color: #1e1b4b;
+  border: 1px solid #fde68a;
+}
+
+.card-floating-badge.badge-danger {
+  background: rgba(239, 68, 68, 0.92);
+  color: #ffffff;
+  border: 1px solid #fca5a5;
+}
+
+.card-floating-badge.badge-lethal {
+  background: linear-gradient(135deg, #000000 0%, #b91c1c 100%);
+  color: #ffffff;
+  border: 1px solid #ef4444;
+  animation: pulse-border 1.5s infinite;
+}
+
+@keyframes pulse-border {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.card-category-tag {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(3, 31, 23, 0.85);
+  border: 1px solid var(--glass-border);
+  color: var(--emerald-300);
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+}
+
+/* Kart İçerik Gövdesi */
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title-group {
+  margin-bottom: 12px;
+}
+
+.card-common-name {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-common-name .plant-icon {
+  font-size: 1.2rem;
+}
+
+.card-scientific-name {
+  font-style: italic;
+  font-size: 0.88rem;
+  color: var(--gold-400);
+  margin-top: 3px;
+  display: block;
+}
+
+.card-family-name {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+/* Hızlı Göstergeler (Kedi, Işık, Su) */
+.card-quick-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin: 14px 0 16px;
+  padding: 10px;
+  background: rgba(2, 26, 20, 0.55);
+  border-radius: 12px;
+  border: 1px solid rgba(52, 211, 153, 0.12);
+}
+
+.metric-item {
+  font-size: 0.78rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-sub);
+}
+
+.metric-item strong {
+  color: #ffffff;
+}
+
+.card-description-preview {
+  font-size: 0.88rem;
+  color: var(--text-sub);
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 18px;
+  flex-grow: 1;
+}
+
+/* Kart Alt Butonu */
+.card-detail-btn {
+  width: 100%;
+  background: linear-gradient(135deg, rgba(6, 78, 59, 0.8), rgba(4, 120, 87, 0.9));
+  border: 1px solid var(--emerald-400);
+  color: #ffffff;
+  padding: 11px 18px;
+  border-radius: var(--radius-leaf);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: var(--transition-smooth);
+}
+
+.card-detail-btn:hover {
+  background: linear-gradient(135deg, var(--emerald-600), var(--emerald-500));
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.45);
+  transform: translateY(-2px);
+}
+
+/* Sonuç Bulunamadı Durumu */
+.no-results-box {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(3, 31, 23, 0.6);
+  border: 1px dashed var(--glass-border);
+  border-radius: var(--radius-leaf);
+}
+
+.no-results-icon {
+  font-size: 3.5rem;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.no-results-box h3 {
+  font-size: 1.4rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.no-results-box p {
+  color: var(--text-muted);
+}
+
+/* ===================================================
+   TÜRKİYE FLORA & MANTAR HARİTASI
+   =================================================== */
+.map-section {
+  margin: 60px 0;
+  padding: 36px;
+  background: rgba(4, 38, 29, 0.7);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-leaf);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-leaf);
+}
+
+.section-header-centered {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 32px;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--gold-400);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.regions-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.region-btn {
+  background: rgba(6, 78, 59, 0.35);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  color: var(--text-sub);
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+.region-btn:hover {
+  background: rgba(16, 185, 129, 0.25);
+  color: #ffffff;
+  border-color: var(--emerald-400);
+}
+
+.region-btn.active {
+  background: linear-gradient(135deg, var(--emerald-600), var(--emerald-800));
+  border-color: var(--emerald-300);
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+}
+
+.region-display-card {
+  background: rgba(2, 26, 20, 0.8);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 24px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .region-display-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+.region-badge-box {
+  background: linear-gradient(135deg, rgba(6, 78, 59, 0.6), rgba(2, 44, 34, 0.9));
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+}
+
+.region-icon-large {
+  font-size: 3rem;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.region-name-display {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.region-climate-info {
+  font-size: 0.82rem;
+  color: var(--gold-400);
+}
+
+.region-species-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.region-species-item {
+  background: rgba(6, 78, 59, 0.25);
+  border: 1px solid rgba(52, 211, 153, 0.15);
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: var(--transition-smooth);
+}
+
+.region-species-item:hover {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: var(--emerald-400);
+}
+
+.region-species-item .spec-name {
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 0.95rem;
+}
+
+.region-species-item .spec-latin {
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--gold-300);
+}
+
+.region-species-item .spec-role {
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+/* ===================================================
+   EĞİTİCİ MİNİ OYUN (QUIZ)
+   =================================================== */
+.quiz-section {
+  margin: 60px 0;
+  padding: 40px;
+  background: linear-gradient(135deg, rgba(6, 44, 34, 0.85) 0%, rgba(2, 26, 20, 0.95) 100%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-leaf);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-leaf);
+}
+
+.quiz-container {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.quiz-score-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: rgba(2, 26, 20, 0.6);
+  border-radius: 14px;
+  border: 1px solid rgba(52, 211, 153, 0.15);
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.quiz-card-box {
+  background: rgba(3, 31, 23, 0.9);
+  border: 2px solid var(--glass-border);
+  border-radius: var(--radius-leaf);
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin-bottom: 24px;
+}
+
+.quiz-img-wrapper {
+  width: 100%;
+  max-width: 440px;
+  height: 240px;
+  margin: 0 auto 20px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.quiz-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.quiz-question-title {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.quiz-question-latin {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--gold-400);
+  margin-bottom: 16px;
+}
+
+.quiz-question-hint {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.quiz-options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 600px) {
+  .quiz-options-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.quiz-opt-btn {
+  padding: 14px 20px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: var(--radius-leaf);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: var(--transition-smooth);
+}
+
+.quiz-opt-btn.opt-safe {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid var(--emerald-400);
+  color: #a7f3d0;
+}
+
+.quiz-opt-btn.opt-safe:hover {
+  background: var(--emerald-600);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.4);
+}
+
+.quiz-opt-btn.opt-danger {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid var(--danger-500);
+  color: #fca5a5;
+}
+
+.quiz-opt-btn.opt-danger:hover {
+  background: var(--danger-500);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(239, 68, 68, 0.4);
+}
+
+.quiz-feedback-box {
+  margin-top: 20px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  display: none;
+}
+
+.quiz-feedback-box.correct {
+  background: rgba(16, 185, 129, 0.25);
+  border: 1px solid var(--emerald-400);
+  color: #d1fae5;
+}
+
+.quiz-feedback-box.wrong {
+  background: rgba(239, 68, 68, 0.25);
+  border: 1px solid var(--danger-500);
+  color: #fee2e2;
+}
+
+.quiz-next-btn {
+  margin-top: 18px;
+  background: var(--gold-500);
+  color: #1e1b4b;
+  border: none;
+  padding: 12px 28px;
+  border-radius: var(--radius-leaf);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition-smooth);
+}
+
+.quiz-next-btn:hover {
+  background: var(--gold-400);
+  transform: scale(1.04);
+}
+
+/* ===================================================
+   DETAY MODAL (BOTANICAL SPECIMEN DOSSIER)
+   =================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(1, 25, 19, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-container {
+  background: linear-gradient(145deg, rgba(4, 44, 34, 0.95) 0%, rgba(2, 26, 20, 0.98) 100%);
+  border: 2px solid var(--emerald-400);
+  border-radius: 28px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(16, 185, 129, 0.3);
+  position: relative;
+  transform: translateY(20px) scale(0.98);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.active .modal-container {
+  transform: translateY(0) scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 42px;
+  height: 42px;
+  background: rgba(2, 26, 20, 0.7);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: var(--transition-smooth);
+}
+
+.modal-close-btn:hover {
+  background: var(--danger-500);
+  transform: rotate(90deg);
+}
+
+.modal-hero-cover {
+  position: relative;
+  height: 280px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 26px 26px 0 0;
+}
+
+.modal-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-cover-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70%;
+  background: linear-gradient(180deg, transparent 0%, rgba(4, 44, 34, 0.95) 100%);
+}
+
+.modal-hero-badges {
+  position: absolute;
+  bottom: 20px;
+  left: 28px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.modal-content-body {
+  padding: 24px 32px 36px;
+}
+
+.modal-header-titles {
+  margin-bottom: 24px;
+}
+
+.modal-common-name {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.modal-scientific-name {
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--gold-400);
+  margin-top: 4px;
+}
+
+.modal-family-tag {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Toksisite Özel Uyarı Kutusu */
+.modal-toxicity-box {
+  background: rgba(69, 10, 10, 0.35);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  border-radius: 18px;
+  padding: 20px;
+  margin-bottom: 28px;
+}
+
+.modal-toxicity-box.is-safe {
+  background: rgba(6, 78, 59, 0.35);
+  border-color: rgba(52, 211, 153, 0.4);
+}
+
+.tox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.tox-item {
+  background: rgba(2, 26, 20, 0.6);
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+.tox-item strong {
+  display: block;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  color: var(--gold-400);
+  margin-bottom: 4px;
+}
+
+/* Bakım & Büyüme Tablosu */
+.modal-dossier-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.dossier-card {
+  background: rgba(2, 26, 20, 0.65);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.dossier-card h5 {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--emerald-300);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dossier-list {
+  list-style: none;
+  font-size: 0.88rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--text-sub);
+}
+
+.dossier-list li strong {
+  color: #ffffff;
+}
+
+.modal-description-full {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-main);
+  background: rgba(6, 78, 59, 0.2);
+  border-left: 4px solid var(--emerald-400);
+  padding: 16px 20px;
+  border-radius: 0 14px 14px 0;
+  margin-bottom: 24px;
+}
+
+/* ===================================================
+   SEVİMLİ REHBER PITRAK (BOTANİK ASİSTANI)
+   =================================================== */
+.pitrak-floating-trigger {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.pitrak-bubble {
+  background: rgba(3, 31, 23, 0.92);
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 20px 20px 4px 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid var(--gold-400);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  animation: float-bubble 3s ease-in-out infinite;
+  max-width: 220px;
+  line-height: 1.4;
+}
+
+@keyframes float-bubble {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.pitrak-avatar-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-400), var(--emerald-500));
+  padding: 3px;
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.45);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pitrak-avatar-btn:hover {
+  transform: scale(1.1) rotate(6deg);
+}
+
+.pitrak-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Pıtrak Chat Modal */
+.pitrak-modal-window {
+  position: fixed;
+  bottom: 105px;
+  right: 28px;
+  width: 380px;
+  max-width: calc(100vw - 40px);
+  height: 520px;
+  background: rgba(3, 31, 23, 0.95);
+  border: 2px solid var(--gold-400);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(245, 158, 11, 0.25);
+  backdrop-filter: blur(16px);
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.pitrak-modal-window.open {
+  display: flex;
+}
+
+.pitrak-chat-header {
+  padding: 16px 20px;
+  background: linear-gradient(135deg, rgba(6, 78, 59, 0.8), rgba(2, 26, 20, 0.9));
+  border-bottom: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pitrak-header-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pitrak-header-thumb {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-400);
+}
+
+.pitrak-header-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
+.pitrak-header-status {
+  font-size: 0.72rem;
+  color: var(--emerald-300);
+}
+
+.pitrak-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.pitrak-messages-area {
+  flex-grow: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pitrak-msg {
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  max-width: 85%;
+}
+
+.pitrak-msg.bot {
+  background: rgba(6, 78, 59, 0.45);
+  border: 1px solid var(--glass-border);
+  color: #ffffff;
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.pitrak-msg.user {
+  background: linear-gradient(135deg, var(--emerald-600), var(--emerald-700));
+  color: #ffffff;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.pitrak-preset-chips {
+  padding: 8px 14px;
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  border-top: 1px solid rgba(52, 211, 153, 0.1);
+  background: rgba(2, 26, 20, 0.5);
+  scrollbar-width: none;
+}
+
+.preset-chip-btn {
+  background: rgba(6, 78, 59, 0.4);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  color: var(--text-muted);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.74rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.preset-chip-btn:hover {
+  background: var(--emerald-600);
+  color: #ffffff;
+}
+
+.pitrak-input-bar {
+  padding: 12px 16px;
+  background: rgba(2, 26, 20, 0.9);
+  border-top: 1px solid var(--glass-border);
+  display: flex;
+  gap: 8px;
+}
+
+.pitrak-input-field {
+  flex-grow: 1;
+  background: rgba(4, 38, 29, 0.8);
+  border: 1px solid var(--glass-border);
+  padding: 10px 14px;
+  border-radius: 20px;
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  outline: none;
+}
+
+.pitrak-send-btn {
+  background: var(--gold-500);
+  color: #1e1b4b;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease;
+}
+
+.pitrak-send-btn:hover {
+  transform: scale(1.08);
+}
+
+/* ===================================================
+   ALT BİLGİ (FOOTER)
+   =================================================== */
+.main-footer {
+  margin-top: 80px;
+  padding: 40px 20px 30px;
+  border-top: 1px solid var(--glass-border);
+  background: rgba(2, 26, 20, 0.85);
+  border-radius: var(--radius-leaf) var(--radius-leaf) 0 0;
+  backdrop-filter: blur(12px);
+  text-align: center;
+}
+
+.footer-brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.footer-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid var(--emerald-400);
+  object-fit: cover;
+  background: #ffffff;
+}
+
+.footer-title {
+  font-family: var(--font-title);
+  font-size: 1.4rem;
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+
+.footer-credits {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 16px;
+  line-height: 1.6;
+}
+
+.footer-credits strong {
+  color: var(--gold-400);
+}
+
+.footer-disclaimer {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* Responsive Düzenlemeler */
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 16px;
+  }
+  .header-brand {
+    justify-content: center;
+  }
+  .header-nav {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .header-author-badge {
+    justify-content: center;
+  }
+  .emergency-radar-card {
+    flex-direction: column;
+    text-align: center;
+  }
+  .radar-left {
+    flex-direction: column;
+  }
+  .radar-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .uzem-call-btn, .first-aid-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

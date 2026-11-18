@@ -1,0 +1,22 @@
+{
+  "name": "Nebâtat • Botanik Atlası ve Toksisite Rehberi",
+  "short_name": "Nebâtat",
+  "description": "Ev bitkileri, şifalı otlar, zehirli türler, mantarlar ve Türkiye endemik florası atlası.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#021a14",
+  "theme_color": "#064e3b",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/logo_alef.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/logo_alef.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

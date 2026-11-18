@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEBÂTAT • Botanik Atlası, Toksisite Radarı ve Mantar Rehberi</title>
+  <meta name="description" content="Nebâtat; ev bitkileri, şifalı otlar, zehirli türler, lezzetli ve ölümcül mantarlar ile Türkiye endemik florasının kapsamlı dijital atlası ve toksisite rehberidir.">
+  <meta name="author" content="Sertan Çubukcu • ALEF Ekosistemi">
+  <meta name="theme-color" content="#022c22">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="NEBÂTAT • Botanik Atlası & Toksisite Rehberi">
+  <meta property="og:description" content="Bitkiler, mantarlar, evcil hayvan güvenliği, kedi/köpek zehirlilik analizleri ve Türkiye endemik florası.">
+  <meta property="og:image" content="assets/bg_botanic.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo_alef.png">
+  <link rel="apple-touch-icon" href="assets/logo_alef.png">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Hareketli Botanik Parçacık Tuvali -->
+  <canvas id="botanical-canvas"></canvas>
+
+  <div class="app-container">
+
+    <!-- ==========================================
+         ÜST BAŞLIK (HEADER / NAVBAR)
+         ========================================== -->
+    <header class="main-header">
+      <!-- Sol: ALEF Logosu & Başlık -->
+      <a href="#" class="header-brand" title="Nebâtat Ana Sayfa">
+        <div class="logo-circle-wrapper">
+          <img src="assets/logo_alef.png" alt="ALΣF Logo" class="brand-logo-img">
+        </div>
+        <div class="brand-text-group">
+          <h1 class="brand-title">
+            <span>NEBÂTAT</span>
+            <span class="leaf-accent">🌿</span>
+          </h1>
+          <span class="brand-subtitle">Botanik Atlası & Toksisite Rehberi</span>
+        </div>
+      </a>
+
+      <!-- Orta: Hızlı Menü Navigasyonu -->
+      <nav class="header-nav">
+        <a href="#flora-explorer" class="leaf-nav-btn">
+          <span>🌱 Türler</span>
+        </a>
+        <a href="#turkey-map-section" class="leaf-nav-btn">
+          <span>🗺️ Flora Haritası</span>
+        </a>
+        <a href="#quiz-section" class="leaf-nav-btn">
+          <span>🎯 Mini Oyun</span>
+        </a>
+        <button id="first-aid-trigger" class="leaf-nav-btn danger-btn" type="button">
+          <span>🚨 UZEM 114 İlk Yardım</span>
+        </button>
+      </nav>
+
+      <!-- Sağ: Sertan Çubukcu Kelebek Logosu -->
+      <a href="https://github.com/Utrucce" target="_blank" rel="noopener" class="header-author-badge" title="Geliştirici: Sertan Çubukcu">
+        <img src="assets/logo_sertan.png" alt="Sertan Çubukcu" class="author-logo-img">
+        <div class="author-info">
+          <span class="author-name">Sertan Çubukcu</span>
+          <span class="author-title">ALEF Ekosistemi</span>
+        </div>
+      </a>
+    </header>
+
+    <!-- ==========================================
+         HERO GİRİŞ & BÜYÜLEYİCİ ARAMA BÖLÜMÜ
+         ========================================== -->
+    <section class="hero-section">
+      <div class="hero-tagline">
+        <span>🍃 Doğanın Şifası, Zehri ve Gizemi</span>
+      </div>
+
+      <h2 class="hero-heading">
+        Yaprakların Dilini ve <br>
+        <span class="gradient-text">Toprağın Gizli Şifasını</span> Keşfet
+      </h2>
+
+      <p class="hero-description">
+        Evindeki salon çiçeği kedin için güvenli mi? Ormanda karşılaştığın mantar lezzetli bir Kanlıca mı, yoksa ölümcül bir Köygöçüren mi? 
+        Türkiye'nin endemik hazinelerinden şifalı dağ otlarına kadar doğanın tüm sırları Nebâtat'ta.
+      </p>
+
+      <!-- Arama Çubuğu -->
+      <div class="search-wrapper">
+        <span class="search-icon-left">🔍</span>
+        <input 
+          type="text" 
+          id="search-input" 
+          class="search-input-box" 
+          placeholder="Bitki adı, Latince adı, familya, belirti veya kedi güvenliği arayın... (Örn: Monstera, Köygöçüren, Kedi Dostu)"
+          autocomplete="off"
+        >
+        <button id="search-clear-btn" class="search-clear-btn" type="button" title="Temizle">✕</button>
+      </div>
+
+      <!-- Hızlı Sayaç Rozetleri -->
+      <div class="hero-stats-row">
+        <div class="stat-pill">
+          <span>🌿</span> <strong>48+</strong> Zengin Botanik Tür
+        </div>
+        <div class="stat-pill">
+          <span>🍄</span> <strong>10+</strong> Yabani Mantar Türü
+        </div>
+        <div class="stat-pill">
+          <span>🐱</span> <strong>%100</strong> Evcil Hayvan Analizi
+        </div>
+        <div class="stat-pill">
+          <span>🇹🇷</span> <strong>7</strong> Coğrafi Flora Bölgesi
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         ACİL TOKSİSİTE & UZEM 114 RADARI
+         ========================================== -->
+    <div class="emergency-radar-card">
+      <div class="radar-left">
+        <div class="radar-pulse-icon">
+          <span>☠️</span>
+        </div>
+        <div class="radar-text">
+          <h4>
+            <span>Toksisite & Zehirlenme Güvenlik Radarı</span>
+            <span style="font-size:0.75rem; background:#ef4444; color:#fff; padding:2px 8px; border-radius:10px;">7/24 ACİL</span>
+          </h4>
+          <p>Şüpheli bitki veya mantar tüketiminde zamanla yarışılır. Kusturmaya çalışmayın, derhal UZEM'e danışın.</p>
+        </div>
+      </div>
+
+      <div class="radar-actions">
+        <a href="tel:114" class="uzem-call-btn">
+          <span>📞 UZEM 114'ü Ara</span>
+        </a>
+        <button class="first-aid-btn" id="first-aid-btn-card" type="button" onclick="document.getElementById('first-aid-trigger').click()">
+          <span>📖 İlk Yardım Rehberi</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         BİTKİ & MANTAR KEŞİF ALANI (EXPLORER)
+         ========================================== -->
+    <section id="flora-explorer" class="filter-section">
+      <!-- Ana Kategori Yaprak Butonları -->
+      <div class="category-tabs-scroll">
+        <button class="category-tab-btn active" data-category="all" type="button">
+          <span class="tab-icon">🌿</span>
+          <span>Tüm Türler</span>
+          <span class="tab-count" data-count-for="all">0</span>
+        </button>
+        <button class="category-tab-btn" data-category="ev_bitkisi" type="button">
+          <span class="tab-icon">🪴</span>
+          <span>Ev ve Salon Bitkileri</span>
+          <span class="tab-count" data-count-for="ev_bitkisi">0</span>
+        </button>
+        <button class="category-tab-btn" data-category="sifali" type="button">
+          <span class="tab-icon">🍵</span>
+          <span>Tıbbi ve Şifalı Otlar</span>
+          <span class="tab-count" data-count-for="sifali">0</span>
+        </button>
+        <button class="category-tab-btn" data-category="zehirli" type="button">
+          <span class="tab-icon">☠️</span>
+          <span>Zehirli ve Tehlikeli Türler</span>
+          <span class="tab-count" data-count-for="zehirli">0</span>
+        </button>
+        <button class="category-tab-btn" data-category="mantar" type="button">
+          <span class="tab-icon">🍄</span>
+          <span>Mantarlar (Yenen & Zehirli)</span>
+          <span class="tab-count" data-count-for="mantar">0</span>
+        </button>
+        <button class="category-tab-btn" data-category="endemik" type="button">
+          <span class="tab-icon">🇹🇷</span>
+          <span>Türkiye Endemikleri</span>
+          <span class="tab-count" data-count-for="endemik">0</span>
+        </button>
+      </div>
+
+      <!-- Alt Güvenlik Filtreleri -->
+      <div class="sub-filter-bar">
+        <div class="filter-pills-group">
+          <span style="font-size:0.8rem; color:var(--gold-400); font-weight:700;">HIZLI FİLTRE:</span>
+          <button class="sub-filter-pill" data-subfilter="cat_safe" type="button">
+            <span>🐱 Kedi Dostu</span>
+          </button>
+          <button class="sub-filter-pill" data-subfilter="dog_safe" type="button">
+            <span>🐶 Köpek Dostu</span>
+          </button>
+          <button class="sub-filter-pill" data-subfilter="child_safe" type="button">
+            <span>👶 Çocuk Güvenli</span>
+          </button>
+          <button class="sub-filter-pill" data-subfilter="lethal" type="button">
+            <span>⚠️ Ölümcül / Yüksek Toksik</span>
+          </button>
+        </div>
+
+        <div class="results-info-text">
+          Listelenen Tür: <strong id="results-count">0</strong>
+        </div>
+      </div>
+
+      <!-- Kartlar Izgarası -->
+      <div id="flora-grid" class="flora-grid">
+        <!-- JavaScript tarafından dinamik oluşturulur -->
+      </div>
+    </section>
+
+    <!-- ==========================================
+         İNTERAKTİF TÜRKİYE FLORA VE MANTAR HARİTASI
+         ========================================== -->
+    <section id="turkey-map-section" class="map-section">
+      <div class="section-header-centered">
+        <span class="section-tag">COĞRAFİ ÇEŞİTLİLİK</span>
+        <h2 class="section-title">İnteraktif Türkiye Flora & Mantar Bölgeleri</h2>
+        <p class="section-subtitle">
+          Anadolu’nun mikroklimalarında yetişen benzersiz bitki örtüsü ve orman mantarlarını bölge bölge inceleyin.
+        </p>
+      </div>
+
+      <!-- Bölge Seçim Butonları -->
+      <div class="regions-nav-grid">
+        <button class="region-btn active" data-region="karadeniz" type="button">🌲 Karadeniz</button>
+        <button class="region-btn" data-region="ege" type="button">🫒 Ege</button>
+        <button class="region-btn" data-region="akdeniz" type="button">☀️ Akdeniz</button>
+        <button class="region-btn" data-region="icanadolu" type="button">🌾 İç Anadolu</button>
+        <button class="region-btn" data-region="doguanadolu" type="button">🏔️ Doğu Anadolu</button>
+        <button class="region-btn" data-region="marmara" type="button">🌊 Marmara</button>
+      </div>
+
+      <!-- Bölge Detay Kartı -->
+      <div id="region-details-container" class="region-display-card">
+        <!-- JavaScript tarafından dinamik doldurulur -->
+      </div>
+    </section>
+
+    <!-- ==========================================
+         EĞİTİCİ MİNİ OYUN (QUIZ)
+         ========================================== -->
+    <section id="quiz-section" class="quiz-section">
+      <div class="section-header-centered">
+        <span class="section-tag">BOTANİK BİLGİ YARIŞMASI</span>
+        <h2 class="section-title">Zehirli mi, Şifalı mı? Mantarı Tanı!</h2>
+        <p class="section-subtitle">
+          Doğadaki bitkileri ve mantarları ne kadar iyi tanıyorsun? Bilgini sına, hayat kurtaran detayları öğren.
+        </p>
+      </div>
+
+      <div class="quiz-container">
+        <!-- Puan ve Soru Sayacı -->
+        <div class="quiz-score-header">
+          <span>Soru: <strong id="quiz-q-number">1 / 6</strong></span>
+          <span>Toplam Puan: <strong id="quiz-score-val" style="color:var(--gold-400);">0</strong></span>
+        </div>
+
+        <!-- Soru Kartı -->
+        <div class="quiz-card-box">
+          <div class="quiz-img-wrapper">
+            <img id="quiz-q-img" class="quiz-img" src="" alt="Soru Görseli">
+          </div>
+
+          <h3 id="quiz-q-title" class="quiz-question-title">Bitki / Mantar Adı</h3>
+          <div id="quiz-q-latin" class="quiz-question-latin">Latin Name</div>
+          <p id="quiz-q-hint" class="quiz-question-hint">İpucu metni buraya gelir...</p>
+
+          <div class="quiz-options-grid">
+            <button id="quiz-btn-safe" class="quiz-opt-btn opt-safe" type="button">
+              <span>🍵 Güvenli / Şifalı / Yenilebilir</span>
+            </button>
+            <button id="quiz-btn-danger" class="quiz-opt-btn opt-danger" type="button">
+              <span>☠️ Zehirli / Ölümcül / Tehlikeli</span>
+            </button>
+          </div>
+
+          <div id="quiz-feedback" class="quiz-feedback-box"></div>
+
+          <button id="quiz-next-btn" class="quiz-next-btn" type="button" style="display:none;">
+            <span>Sonraki Soruya Geç ➔</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         DETAY DOSYASI MODAL
+         ========================================== -->
+    <div id="flora-modal" class="modal-overlay">
+      <div class="modal-container">
+        <button id="modal-close-btn" class="modal-close-btn" type="button" title="Kapat">✕</button>
+        <div id="modal-dynamic-content">
+          <!-- JavaScript tarafından doldurulur -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         SEVİMLİ REHBER PITRAK (BOTANİK ASİSTANI)
+         ========================================== -->
+    <div id="pitrak-trigger" class="pitrak-floating-trigger" title="Pıtrak Botanik Danışmanı">
+      <div class="pitrak-bubble">
+        Merhaba! Ben Pıtrak 🌿 Bitki ve mantar danışmanınım. Bana sorabilirsin!
+      </div>
+      <button class="pitrak-avatar-btn" type="button">
+        <img src="assets/pitrak.png" alt="Pıtrak" class="pitrak-avatar-img">
+      </button>
+    </div>
+
+    <!-- Pıtrak Sohbet Penceresi -->
+    <div id="pitrak-window" class="pitrak-modal-window">
+      <div class="pitrak-chat-header">
+        <div class="pitrak-header-info">
+          <img src="assets/pitrak.png" alt="Pıtrak" class="pitrak-header-thumb">
+          <div>
+            <div class="pitrak-header-title">Sevimli Rehber Pıtrak</div>
+            <div class="pitrak-header-status">● Çevrimiçi Botanik Danışmanı</div>
+          </div>
+        </div>
+        <button id="pitrak-close-btn" class="pitrak-close-btn" type="button">✕</button>
+      </div>
+
+      <div id="pitrak-messages" class="pitrak-messages-area">
+        <div class="pitrak-msg bot">
+          Selam sevgili bitkisever! Ben <strong>Pıtrak</strong> 🌿 Evindeki bitkilerin kedin veya köpeğin için güvenli olup olmadığını, hangi mantarların yenebileceğini veya doğadaki şifalı otları bana sorabilirsin!
+        </div>
+      </div>
+
+      <!-- Hazır Soru Çipleri -->
+      <div class="pitrak-preset-chips">
+        <button class="preset-chip-btn" data-query="Kedim için hangi bitkiler güvenli?" type="button">🐱 Kedi dostu bitkiler</button>
+        <button class="preset-chip-btn" data-query="Köygöçüren mantarı nasıl anlaşılır?" type="button">🍄 Köygöçüren mantarı</button>
+        <button class="preset-chip-btn" data-query="Zakkum gerçekten ölümcül mü?" type="button">☠️ Zakkum tehlikesi</button>
+        <button class="preset-chip-btn" data-query="Uyku ve stres için hangi bitki çayı iyi gelir?" type="button">🍵 Uyku çayı</button>
+        <button class="preset-chip-btn" data-query="Sarı kantaron güneşte leke yapar mı?" type="button">🌼 Sarı kantaron</button>
+      </div>
+
+      <div class="pitrak-input-bar">
+        <input 
+          type="text" 
+          id="pitrak-input" 
+          class="pitrak-input-field" 
+          placeholder="Bir soru yazın..."
+          autocomplete="off"
+        >
+        <button id="pitrak-send-btn" class="pitrak-send-btn" type="button" title="Gönder">➔</button>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         ALT BİLGİ (FOOTER)
+         ========================================== -->
+    <footer class="main-footer">
+      <div class="footer-brand-row">
+        <img src="assets/logo_alef.png" alt="ALEF Logo" class="footer-logo">
+        <div class="footer-title">NEBÂTAT • Botanik Atlası</div>
+        <img src="assets/logo_sertan.png" alt="Sertan Çubukcu Logo" class="footer-logo">
+      </div>
+
+      <p class="footer-credits">
+        Tasarım ve Geliştirme: <strong>Sertan Çubukcu</strong> • <strong>ALEF Ekosistemi</strong><br>
+        Doğanın tüm renkleri, kadim şifası ve korunması gereken endemik zenginlikleri için hazırlandı.
+      </p>
+
+      <p class="footer-disclaimer">
+        ⚠️ <strong>Yasal Uyarı:</strong> Bu sitede yer alan toksisite ve şifa bilgileri bilgilendirme ve farkındalık amaçlıdır. Doğadan toplanan hiçbir yabani bitki veya mantar uzman teyidi olmadan tüketilmemelidir. Zehirlenme şüphesinde derhal <strong>114 UZEM</strong> veya <strong>112 Acil Servis</strong>'e başvurulmalıdır.
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="data/flora.js"></script>
+  <script src="app.js"></script>
+
+  <!-- Service Worker Kaydı -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(err => console.log('SW kayıt:', err));
+      });
+    }
+  </script>
+</body>
+</html>
