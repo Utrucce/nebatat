@@ -521,6 +521,13 @@ function openModal(id) {
           </ul>
         </div>
       </div>
+
+      <!-- Yazdır / Kaydet Butonu -->
+      <div style="text-align:center; margin-top:16px;">
+        <button class="first-aid-btn" onclick="window.print()" type="button" style="background:rgba(16,185,129,0.25); border-color:#10b981; color:#fff;">
+          <span>🖨️ Bu Botanik Dosyasını Yazdır / PDF Kaydet</span>
+        </button>
+      </div>
     </div>
   `;
 
@@ -1376,3 +1383,294 @@ function handlePitrakSend() {
     messagesArea.scrollTop = messagesArea.scrollHeight;
   }, 400);
 }
+/* ===================================================
+   10. ŞİFALI ÇAY DEMLEME LABORATUVARI (HERBAL TEA LAB)
+   =================================================== */
+const teaRecipes = {
+  papatya: {
+    name: 'Tıbbi Papatya Çayı',
+    method: 'İnfüzyon (Demleme - Asla Kaynatılmaz)',
+    temp: '90 - 95 °C',
+    timeMinutes: 5,
+    maxCups: 'Günde 2-3 Fincan',
+    benefits: 'Derin uyku, mide spazmlarını çözme, anksiyete yatıştırma ve göz çapaklanmalarında pansuman.',
+    caution: 'Papatyagillere şiddetli polen alerjisi olanlarda nadiren hapşırma yapabilir. Güvenilirdir.'
+  },
+  adacayi: {
+    name: 'Tıbbi Adaçayı',
+    method: 'İnfüzyon (Üstü Kapalı Demleme)',
+    temp: '95 °C',
+    timeMinutes: 7,
+    maxCups: 'Günde 2 Fincan',
+    benefits: 'Farenjit, bademcik iltihabı ve aftlarda gargarası en güçlü doğal antibiyotiktir. Gece terlemelerini keser.',
+    caution: 'Hamilelikte rahim kasılmalarını tetikleyebilir, gebeler tüketmemelidir. Aralıksız haftalarca içilmemelidir.'
+  },
+  kantaron: {
+    name: 'Sarı Kantaron Çayı',
+    method: 'İnfüzyon (5 Dakika)',
+    temp: '90 °C',
+    timeMinutes: 5,
+    maxCups: 'Günde 1 Fincan (Akşamları)',
+    benefits: 'Hafif depresyon, iç huzursuzluk, kaygı ve mide ülseri şikayetlerinde sinirleri yatıştırır.',
+    caution: 'GÜNEŞ UYARISI: İçildikten veya yağı sürüldükten sonra direkt güneşe çıkılmamalıdır. Antidepresanlarla kullanılmaz.'
+  },
+  ihlamur: {
+    name: 'Ihlamur Çiçeği & Yaprağı',
+    method: 'İnfüzyon (Ağzı Kapalı Demleme)',
+    temp: '95 - 100 °C',
+    timeMinutes: 8,
+    maxCups: 'Günde 3-4 Fincan',
+    benefits: 'Göğsü yumuşatır, inatçı öksürüğü söker, terleterek vücuttan toksin ve kırgınlığı atar.',
+    caution: 'Bebekler ve yaşlılar için de son derece güvenli ve şefkatli bir kış çayıdır.'
+  },
+  melisa: {
+    name: 'Limon Melisa (Oğul Otu)',
+    method: 'İnfüzyon (Limon Kokusu Uçmadan)',
+    temp: '85 - 90 °C',
+    timeMinutes: 6,
+    maxCups: 'Günde 2 Fincan',
+    benefits: 'Sinirsel kalp çarpıntısını dindirir, zihinsel gerginliği siler, deliksiz uyku verir.',
+    caution: 'Hipo-tiroid hastalarının aşırı miktarda içmemesi tavsiye edilir.'
+  },
+  kusburnu: {
+    name: 'Kuşburnu Meyvesi',
+    method: 'Dekoksiyon (Hafif Kaynatma)',
+    temp: '100 °C (Kısık Ateşte 10 dk)',
+    timeMinutes: 10,
+    maxCups: 'Günde 2-3 Fincan',
+    benefits: 'Doğal C vitamini bombasıdır. Eklem romatizmasında ve diz kireçlenmesinde iltihabı baskılar.',
+    caution: 'Meyveleri hafifçe ezilerek kaynatılmalı, fincana doldurulurken ince süzgeçten geçirilmelidir.'
+  },
+  biberiye: {
+    name: 'Biberiye Çayı',
+    method: 'İnfüzyon (Zihin Açıcı)',
+    temp: '95 °C',
+    timeMinutes: 6,
+    maxCups: 'Günde 1-2 Fincan (Sabah/Öğle)',
+    benefits: 'Beyne giden kan dolaşımını uyarır, dikkati ve hafızayı keskinleştirir, baş ağrısını hafifletir.',
+    caution: 'Tansiyonu bir miktar yükseltebileceğinden yüksek tansiyon hastaları dikkatli tüketmelidir.'
+  },
+  kekik: {
+    name: 'İzmir Kekiği Çayı',
+    method: 'İnfüzyon (Karvakrol Koruması)',
+    temp: '90 °C',
+    timeMinutes: 4,
+    maxCups: 'Günde 1 Fincan',
+    benefits: 'Boğazdaki ve midedeki zararlı bakterileri temizler, sindirimi rahatlatır, gazı söker.',
+    caution: 'Kaynatılmamalıdır; kaynatılırsa faydalı uçucu yağları uçar ve tadı acılaşır.'
+  },
+  isirgan: {
+    name: 'Büyük Isırgan Yaprağı',
+    method: 'İnfüzyon (Demleme)',
+    temp: '95 °C',
+    timeMinutes: 7,
+    maxCups: 'Günde 2 Fincan',
+    benefits: 'Kandaki demir ve hemoglobin oranını yükseltir, böbreklerden ürik asidi temizler, ödem attırır.',
+    caution: 'Tansiyon düşürücü ilaçlarla etkileşebilir.'
+  }
+};
+
+let teaTimerInterval = null;
+let teaTimerSecondsLeft = 0;
+
+function initHerbalTeaLab() {
+  const selectEl = document.getElementById('tea-select');
+  const chipButtons = document.querySelectorAll('.tea-chip-btn');
+
+  if (selectEl) {
+    selectEl.addEventListener('change', (e) => {
+      renderTeaDetails(e.target.value);
+    });
+  }
+
+  chipButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      chipButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const teaKey = btn.getAttribute('data-tea');
+      if (selectEl) selectEl.value = teaKey;
+      renderTeaDetails(teaKey);
+    });
+  });
+
+  renderTeaDetails('papatya');
+}
+
+function renderTeaDetails(key) {
+  const t = teaRecipes[key] || teaRecipes.papatya;
+  const card = document.getElementById('tea-display-card');
+  if (!card) return;
+
+  clearInterval(teaTimerInterval);
+  teaTimerSecondsLeft = t.timeMinutes * 60;
+
+  card.innerHTML = `
+    <div class="tea-header-row">
+      <h3 class="tea-name-title">${t.name}</h3>
+      <span class="tea-method-badge">${t.method}</span>
+    </div>
+
+    <div class="tea-spec-metrics">
+      <div class="tea-metric-item">
+        <span>🌡️ İdeal Sıcaklık</span>
+        <strong>${t.temp}</strong>
+      </div>
+      <div class="tea-metric-item">
+        <span>⏱️ Demleme Süresi</span>
+        <strong>${t.timeMinutes} Dakika</strong>
+      </div>
+      <div class="tea-metric-item">
+        <span>☕ Günlük Limit</span>
+        <strong>${t.maxCups}</strong>
+      </div>
+    </div>
+
+    <div class="tea-timer-box">
+      <div>
+        <span style="font-size:0.85rem; color:var(--text-muted); display:block;">Akıllı Demleme Sayacı:</span>
+        <span id="tea-timer-display" class="timer-countdown">${formatTimer(teaTimerSecondsLeft)}</span>
+      </div>
+      <button id="tea-timer-btn" class="timer-ctrl-btn" onclick="toggleTeaTimer()" type="button">
+        ▶ Sayacı Başlat
+      </button>
+    </div>
+
+    <div style="font-size:0.92rem; line-height:1.6; color:#ffffff; margin-bottom:14px;">
+      <strong>🌟 Temel Şifası:</strong> ${t.benefits}
+    </div>
+
+    <div class="tea-caution-box">
+      <strong>⚠️ Dikkat Edilecekler & Uyarı:</strong> ${t.caution}
+    </div>
+  `;
+}
+
+function formatTimer(sec) {
+  const m = Math.floor(sec / 60);
+  const s = sec % 60;
+  return `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+}
+
+window.toggleTeaTimer = function() {
+  const btn = document.getElementById('tea-timer-btn');
+  const display = document.getElementById('tea-timer-display');
+  if (!btn || !display) return;
+
+  if (teaTimerInterval) {
+    clearInterval(teaTimerInterval);
+    teaTimerInterval = null;
+    btn.textContent = '▶ Devam Et';
+    btn.style.background = '';
+  } else {
+    btn.textContent = '⏸ Duraklat';
+    btn.style.background = '#f59e0b';
+
+    teaTimerInterval = setInterval(() => {
+      if (teaTimerSecondsLeft > 0) {
+        teaTimerSecondsLeft--;
+        display.textContent = formatTimer(teaTimerSecondsLeft);
+      } else {
+        clearInterval(teaTimerInterval);
+        teaTimerInterval = null;
+        display.textContent = 'DEMLENDİ! 🍵';
+        btn.textContent = '✓ Şifa Olsun';
+        btn.style.background = '#10b981';
+        playTeaChime();
+      }
+    }, 1000);
+  }
+};
+
+function playTeaChime() {
+  try {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    const ctx = new AudioContext();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(587.33, ctx.currentTime); // D5
+    osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.3); // A5
+    gain.gain.setValueAtTime(0.3, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 1.2);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 1.2);
+  } catch (e) {}
+}
+
+/* ===================================================
+   11. EVCİL HAYVAN TOKSİSİTE DEDEKTİFİ
+   =================================================== */
+let petCheckerCurrentType = 'cat';
+
+function initPetChecker() {
+  const btnCat = document.getElementById('pet-btn-cat');
+  const btnDog = document.getElementById('pet-btn-dog');
+
+  if (btnCat && btnDog) {
+    btnCat.addEventListener('click', () => {
+      petCheckerCurrentType = 'cat';
+      btnCat.classList.add('active');
+      btnDog.classList.remove('active');
+      renderPetCheckerResults();
+    });
+
+    btnDog.addEventListener('click', () => {
+      petCheckerCurrentType = 'dog';
+      btnDog.classList.add('active');
+      btnCat.classList.remove('active');
+      renderPetCheckerResults();
+    });
+  }
+
+  renderPetCheckerResults();
+}
+
+function renderPetCheckerResults() {
+  const container = document.getElementById('pet-results-container');
+  if (!container || allFlora.length === 0) return;
+
+  const houseSpecies = allFlora.filter(f => f.category === 'ev_bitkisi');
+
+  const petLabel = petCheckerCurrentType === 'cat' ? 'Kedi' : 'Köpek';
+
+  container.innerHTML = `
+    <div style="margin-bottom:16px; font-size:0.92rem; color:var(--text-muted);">
+      Seçili Evcil Hayvan: <strong style="color:#ffffff;">${petLabel}</strong> • İncelenen Popüler Ev Bitkisi: <strong>${houseSpecies.length}</strong>
+    </div>
+
+    <div>
+      ${houseSpecies.map(item => {
+        const toxField = petCheckerCurrentType === 'cat' ? item.toxicity.pets_cat : item.toxicity.pets_dog;
+        const isSafe = (toxField || '').toLowerCase().includes('güvenli') || (toxField || '').toLowerCase().includes('dostu') || (toxField || '').toLowerCase().includes('zararsız');
+        const badgeClass = isSafe ? 'pet-badge-safe' : 'pet-badge-toxic';
+        const badgeLabel = isSafe ? `✅ ${petLabel} Dostu (Güvenli)` : `⚠️ ${petLabel} İçin Toksik!`;
+
+        return `
+          <div class="pet-species-card-mini" onclick="openModal('${item.id}')" style="cursor:pointer;" title="Dosyayı İncele">
+            <div style="display:flex; align-items:center; gap:14px;">
+              <img src="${item.image}" alt="${item.name}" style="width:48px; height:48px; border-radius:12px; object-fit:cover;">
+              <div>
+                <strong style="color:#ffffff; font-size:1.02rem;">${item.name}</strong>
+                <span style="font-style:italic; font-size:0.8rem; color:var(--gold-400); margin-left:6px;">(${item.scientific_name})</span>
+                <div style="font-size:0.82rem; color:var(--text-sub); margin-top:3px;">
+                  ${item.toxicity.symptoms ? item.toxicity.symptoms.substring(0, 75) + '...' : ''}
+                </div>
+              </div>
+            </div>
+            <div>
+              <span class="${badgeClass}">${badgeLabel}</span>
+            </div>
+          </div>
+        `;
+      }).join('')}
+    </div>
+  `;
+}
+
+// Global scope init
+window.addEventListener('load', () => {
+  initHerbalTeaLab();
+  initPetChecker();
+});

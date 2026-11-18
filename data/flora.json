@@ -2061,5 +2061,520 @@
       "endemik",
       "dünyada tek"
     ]
+  },
+  {
+    "id": "nephrolepis-exaltata",
+    "name": "Aşk Merdiveni (Boston Eğreltisi)",
+    "scientific_name": "Nephrolepis exaltata",
+    "family": "Nephrolepidaceae (Eğreltigiller)",
+    "category": "ev_bitkisi",
+    "category_title": "Ev / Salon Bitkisi",
+    "sub_category": "EVCİL HAYVAN DOSTU (GÜVENLİ & HAVA TEMİZLEYİCİ)",
+    "toxicity": {
+      "level": "Zehirsiz (Tamamen Güvenli)",
+      "badge": "safe",
+      "pets_cat": "Kedi Dostu (%100 Güvenli)",
+      "pets_dog": "Köpek Dostu (%100 Güvenli)",
+      "children": "Tamamen Güvenli",
+      "contact": "Zararsız, yumuşak tüysü yapraklar",
+      "symptoms": "Zehirli madde içermez. Kediler sarkan yapraklarıyla oynamayı çok sever.",
+      "emergency_action": "Zararsızdır, güvenle sergilenebilir."
+    },
+    "care": {
+      "light": "Yarı gölge, dolaylı aydınlık (Direkt güneş yakar)",
+      "water": "Sık (Toprak daima nemli tutulmalı)",
+      "humidity": "Çok Yüksek nem (%70+ nem ve yaprak spreyleme sever)",
+      "soil": "Hafif, torflu, nem tutucu zengin karışım",
+      "difficulty": "Kolay - Orta"
+    },
+    "culinary_medicinal": {
+      "is_medicinal": false,
+      "is_edible": false,
+      "uses": "Formaldehit ve havadaki toksinleri temizleme kapasitesi en yüksek iç mekan bitkilerindendir."
+    },
+    "turkey_distribution": "Türkiye'de askılı saksılardan sarkan yemyeşil şelale formuyla salonların vazgeçilmezidir.",
+    "description": "Zümrüt yeşili dantelsi zarif yaprakları aşağı doğru basamak basamak döküldüğü için 'Aşk Merdiveni' adını almıştır. Kedi ve köpek sahipleri için en huzurlu ve güvenli ev arkadaşıdır.",
+    "icon": "🌿",
+    "tags": [
+      "aşk merdiveni",
+      "eğrelti otu",
+      "kedi dostu",
+      "zehirsiz",
+      "hava temizleyici",
+      "sarkan"
+    ],
+    "image": "assets/flora/nephrolepis-exaltata.jpg"
+  },
+  {
+    "id": "pilea-peperomioides",
+    "name": "Çin Para Çiçeği (Pilea / Misyoner Çiçeği)",
+    "scientific_name": "Pilea peperomioides",
+    "family": "Urticaceae (Isırgangiller)",
+    "category": "ev_bitkisi",
+    "category_title": "Ev / Salon Bitkisi",
+    "sub_category": "EVCİL HAYVAN DOSTU & MODERN ESTETİK",
+    "toxicity": {
+      "level": "Zehirsiz (Tamamen Güvenli)",
+      "badge": "safe",
+      "pets_cat": "Kedi Dostu (%100 Güvenli)",
+      "pets_dog": "Köpek Dostu (%100 Güvenli)",
+      "children": "Tamamen Güvenli",
+      "contact": "Zararsız",
+      "symptoms": "Toksik değildir.",
+      "emergency_action": "Güvenle bakılabilir."
+    },
+    "care": {
+      "light": "Parlak, filtrelenmiş dolaylı gün ışığı",
+      "water": "Orta (Toprak üstü hafif kuruyunca)",
+      "humidity": "Orta oda nemi",
+      "soil": "İyi süzek kaktüs veya torf toprağı",
+      "difficulty": "Çok Kolay"
+    },
+    "culinary_medicinal": {
+      "is_medicinal": false,
+      "is_edible": false,
+      "uses": "Kolayca yavru (pup) verdiği için dostluk çiçeği olarak sevdiklerle paylaşılır."
+    },
+    "turkey_distribution": "Modern minimalist ev ve ofis dekorasyonunda son yılların en sevilen yıldızıdır.",
+    "description": "İncecik saplar üzerinde duran kusursuz yuvarlak bozuk para şeklindeki etli yapraklarıyla sevimli bir UFO görünümüne sahiptir. İskandinav ve modern tasarımın baş tacıdır.",
+    "icon": "🪙",
+    "tags": [
+      "pilea",
+      "çin para çiçeği",
+      "kedi dostu",
+      "zehirsiz",
+      "minimalist",
+      "kolay çoğalan"
+    ],
+    "image": "assets/flora/pilea-peperomioides.jpg"
+  },
+  {
+    "id": "monstera-adansonii",
+    "name": "Maymun Maskesi (Monstera Adansonii)",
+    "scientific_name": "Monstera adansonii",
+    "family": "Araceae (Yılanyastığıgiller)",
+    "category": "ev_bitkisi",
+    "category_title": "Ev / Salon Bitkisi",
+    "sub_category": "Kompakt Delikli Tropikal Sarılıcı",
+    "toxicity": {
+      "level": "Orta Toksik",
+      "badge": "warning",
+      "pets_cat": "Zehirli",
+      "pets_dog": "Zehirli",
+      "children": "Uzak Tutulmalı",
+      "contact": "Hassas ciltlerde hafif kaşıntı",
+      "symptoms": "Kalsiyum oksalat kristalleri ağızda batma ve yanmaya neden olur.",
+      "emergency_action": "Evcil hayvanların erişemeyeceği yüksek askılıklarda tutulmalıdır."
+    },
+    "care": {
+      "light": "Bol aydınlık filtrelenmiş güneş",
+      "water": "Orta düzenli (Toprak kurudukça)",
+      "humidity": "Yüksek nem sever",
+      "soil": "Havadar orkide kabuğu ve torf karışımı",
+      "difficulty": "Kolay"
+    },
+    "culinary_medicinal": {
+      "is_medicinal": false,
+      "is_edible": false,
+      "uses": "Tırmanıcı yosun çubuğuna sarılarak dikey bahçe havası yaratır."
+    },
+    "turkey_distribution": "Salon sarmaşıkları arasında popülaritesi hızla artan seçkin bir türdür.",
+    "description": "Yapraklarının ortasındaki pencereleri andıran oval delikleriyle dev deve tabanının minyatür ve sarılıcı bir versiyonudur. Doğada yağmur damlalarının rüzgarla yaprağı yırtmasını önlemek için delikli gelişmiştir.",
+    "icon": "🐒",
+    "tags": [
+      "monstera adansonii",
+      "maymun maskesi",
+      "delikli yaprak",
+      "sarmaşık",
+      "tropikal"
+    ],
+    "image": "assets/flora/monstera-adansonii.jpg"
+  },
+  {
+    "id": "phalaenopsis-aphrodite",
+    "name": "Ay Orkidesi (Falenopsis)",
+    "scientific_name": "Phalaenopsis aphrodite",
+    "family": "Orchidaceae (Salepgiller)",
+    "category": "ev_bitkisi",
+    "category_title": "Ev / Salon Bitkisi",
+    "sub_category": "EVCİL HAYVAN DOSTU (GÜVENLİ & ASİL HEDİYE)",
+    "toxicity": {
+      "level": "Zehirsiz (Tamamen Güvenli)",
+      "badge": "safe",
+      "pets_cat": "Kedi Dostu (%100 Güvenli)",
+      "pets_dog": "Köpek Dostu (%100 Güvenli)",
+      "children": "Tamamen Güvenli",
+      "contact": "Zararsız",
+      "symptoms": "Toksik değildir. Kediler yapraklarını veya çiçeklerini ısırırsa zehirlenme riski yoktur.",
+      "emergency_action": "Güvenle bakılabilir."
+    },
+    "care": {
+      "light": "Tül arkasından sabah güneşi (Şeffaf saksı)",
+      "water": "Haftada 1 kez kökler grileşince daldırma usulü",
+      "humidity": "Orta - Yüksek",
+      "soil": "Özel çam kabuğu orkide harcı",
+      "difficulty": "Orta"
+    },
+    "culinary_medicinal": {
+      "is_medicinal": false,
+      "is_edible": false,
+      "uses": "Kökleri klorofil içerir ve ışık alması için şeffaf saksıda yetiştirilir."
+    },
+    "turkey_distribution": "Türkiye'de en çok hediye edilen ve evlerde en çok sevilen asil çiçekli saksı bitkisidir.",
+    "description": "Uçuşan beyaz kelebekleri andıran taç yaprakları ve aylarca solmayan zarafetiyle iç mekanların en asil mücevheridir. Sanılanın aksine kediler ve köpekler için tamamen zararsızdır.",
+    "icon": "🌸",
+    "tags": [
+      "orkide",
+      "phalaenopsis",
+      "kedi dostu",
+      "zehirsiz",
+      "kelebek çiçek",
+      "hediyelik"
+    ],
+    "image": "assets/flora/phalaenopsis-aphrodite.jpg"
+  },
+  {
+    "id": "tradescantia-zebrina",
+    "name": "Telgraf Çiçeği (Damat Pijaması)",
+    "scientific_name": "Tradescantia zebrina",
+    "family": "Commelinaceae (Kommelinagiller)",
+    "category": "ev_bitkisi",
+    "category_title": "Ev / Salon Bitkisi",
+    "sub_category": "Gümüş-Mor Çizgili Hızlı Sarılıcı",
+    "toxicity": {
+      "level": "Hafif Toksik (Hassas Hayvanlarda Kaşıntı)",
+      "badge": "warning",
+      "pets_cat": "Aşırı yenirse mideyi bozar",
+      "pets_dog": "Deriye temasta hafif kaşıntı",
+      "children": "Düşük Risk",
+      "contact": "Özsuyu duyarlı ciltlerde kızarıklık yapabilir",
+      "symptoms": "Ağızda ve deride hafif alerjik kaşıntı.",
+      "emergency_action": "Yüksek raflardan sarkıtılarak evcil hayvan temasından korunmalıdır."
+    },
+    "care": {
+      "light": "Bol aydınlık (Işık az olursa mor rengini kaybeder)",
+      "water": "Hafif nemli (Suda 3 günde köklenir)",
+      "humidity": "Orta",
+      "soil": "Genel saksı toprağı",
+      "difficulty": "Çok Kolay"
+    },
+    "culinary_medicinal": {
+      "is_medicinal": false,
+      "is_edible": false,
+      "uses": "Suda bir tek dalı bile haftalarca büyüyebilir."
+    },
+    "turkey_distribution": "Anadolu evlerinde 'Damat Pijaması' adıyla pencere kenarlarından sarkıtılan kadim çiçek.",
+    "description": "Yapraklarının üst yüzeyindeki metalik gümüş ve mor çizgileri ışık vurdukça sedef gibi parlar. Bir dalını kırıp toprağa batırdığınızda günler içinde köklenen olağanüstü bir yaşama azmine sahiptir.",
+    "icon": "💜",
+    "tags": [
+      "telgraf çiçeği",
+      "damat pijaması",
+      "mor yaprak",
+      "sarkan sarmaşık",
+      "kolay köklenen"
+    ],
+    "image": "assets/flora/tradescantia-zebrina.jpg"
+  },
+  {
+    "id": "tilia-cordata",
+    "name": "Ihlamur Ağacı",
+    "scientific_name": "Tilia cordata",
+    "family": "Malvaceae (Ebegümecigiller)",
+    "category": "sifali",
+    "category_title": "Tıbbi & Şifalı Bitki",
+    "sub_category": "Kış Şifası & Göğüs Yumuşatıcı Kadim Çay",
+    "toxicity": {
+      "level": "Zehirsiz (Şifa Deposu)",
+      "badge": "safe",
+      "pets_cat": "Zararsız",
+      "pets_dog": "Zararsız",
+      "children": "Bebek ve çocuklara bal ile güvenle içirilir",
+      "contact": "Zararsız, mis kokulu",
+      "symptoms": "Zehirli madde içermez.",
+      "emergency_action": "Afiyetle içilebilir."
+    },
+    "care": {
+      "light": "Tam güneş ve açık hava",
+      "water": "Doğal yağışlar",
+      "humidity": "Ilıman orman iklimi",
+      "soil": "Derin humuslu zengin orman toprağı",
+      "difficulty": "Doğal anıt ağaç"
+    },
+    "culinary_medicinal": {
+      "is_medicinal": true,
+      "is_edible": true,
+      "uses": "Bal ve limonla demlenen çiçekleri öksürüğü keser, göğsü yumuşatır ve terleterek ateşi düşürür. Boğaz tahrişini anında yatıştırır."
+    },
+    "turkey_distribution": "Karadeniz ve Marmara ormanlarında haziran ayında mis kokularıyla çiçek açar.",
+    "description": "Erken yaz gecelerinde tüm sokakları dolduran o büyüleyici bal kokusu ıhlamur ağacına aittir. Anadolu'da kış aylarının ve soba başı sohbetlerinin en sıcacık şifa ilacıdır.",
+    "icon": "☕",
+    "tags": [
+      "ıhlamur",
+      "öksürük",
+      "göğüs yumuşatıcı",
+      "bal limon",
+      "kış çayı",
+      "şifalı ağaç"
+    ],
+    "image": "assets/flora/tilia-cordata.jpg"
+  },
+  {
+    "id": "achillea-millefolium",
+    "name": "Civanperçemi (Binbiryaprak Otu)",
+    "scientific_name": "Achillea millefolium",
+    "family": "Asteraceae (Papatyagiller)",
+    "category": "sifali",
+    "category_title": "Tıbbi & Şifalı Bitki",
+    "sub_category": "Kadın Sağlığı & Yara Kapatıcı Asker Otu",
+    "toxicity": {
+      "level": "Zehirsiz (Normal Dozda Güvenli)",
+      "badge": "safe",
+      "pets_cat": "Az miktar zararsız",
+      "pets_dog": "Zararsız",
+      "children": "Çocuklara hafif dozda verilebilir",
+      "contact": "Zararsız",
+      "symptoms": "Hamilelik döneminde rahim hareketlerini uyarabileceğinden içilmemelidir.",
+      "emergency_action": "Gebelikte hekime danışılmalıdır."
+    },
+    "care": {
+      "light": "Bol güneşli dağ çayırları",
+      "water": "Kuraklığa çok dayanıklı",
+      "humidity": "Düşük",
+      "soil": "Taşlık ve çakıllı yol kenarları",
+      "difficulty": "Kendiliğinden biter"
+    },
+    "culinary_medicinal": {
+      "is_medicinal": true,
+      "is_edible": true,
+      "uses": "Truva Savaşı'nda Akhilleus askerlerinin kanayan yaralarını bu otla durdurmuştur. Kadınlarda adet sancılarını ve düzensizliklerini dindiren bir numaralı ottur."
+    },
+    "turkey_distribution": "Anadolu'nun tüm yaylalarında ve dağ yamaçlarında beyaz ve pembe şemsiyeleriyle boldur.",
+    "description": "Kuş tüyü gibi bin parçaya bölünmüş dantelsi yaprakları ve beyaz çiçek şemsiyeleriyle dağların en bilge hekimidir. Eski çağlarda kılıç yaralarını iyileştiren 'Asker Otu' olarak bilinirdi.",
+    "icon": "🌾",
+    "tags": [
+      "civanperçemi",
+      "kadın otu",
+      "adet sancısı",
+      "yara kapatıcı",
+      "akhilleus",
+      "dağ şifası"
+    ],
+    "image": "assets/flora/achillea-millefolium.jpg"
+  },
+  {
+    "id": "rosa-canina",
+    "name": "Kuşburnu (Yaban Gülü / İtburnu)",
+    "scientific_name": "Rosa canina",
+    "family": "Rosaceae (Gülgiller)",
+    "category": "sifali",
+    "category_title": "Tıbbi & Şifalı Bitki",
+    "sub_category": "Doğal C Vitamini Deposu & Eklem Dostu",
+    "toxicity": {
+      "level": "Zehirsiz (Süper Gıda)",
+      "badge": "safe",
+      "pets_cat": "Meyvesi zararsız",
+      "pets_dog": "Zararsız",
+      "children": "Marmelatı çocuklar için harika bir vitamin kaynağıdır",
+      "contact": "Dikenleri batabilir, iç tüyleri boğazı gıcıklayabilir (süzülmelidir)",
+      "symptoms": "Toksik değildir.",
+      "emergency_action": "Çayı demlenirken meyveleri hafifçe çatlatılmalıdır."
+    },
+    "care": {
+      "light": "Tam güneş",
+      "water": "Kurakçıl dağ çalısı",
+      "humidity": "Karasal dağ iklimi",
+      "soil": "Kalkerli ve taşlı dağ yamaçları",
+      "difficulty": "Vahşi çalı"
+    },
+    "culinary_medicinal": {
+      "is_medicinal": true,
+      "is_edible": true,
+      "uses": "Portakaldan 60 kat daha fazla C vitamini içerir. Eklem kireçlenmesinde ve romatizmada iltihabı söndürür. Marmelatı ve çayı enfestir."
+    },
+    "turkey_distribution": "İç Anadolu, Doğu Anadolu (Gümüşhane, Tokat, Sivas) yaylalarında kırmızı yakut gibi parıldar.",
+    "description": "İlkbaharda narin pembe güller açan, sonbaharda ise karların altında alev kırmızısı meyveler veren Anadolu'nun en dirençli ve bağışıklık zengini çalı hazinesidir.",
+    "icon": "🔴",
+    "tags": [
+      "kuşburnu",
+      "c vitamini",
+      "marmelat",
+      "eklem kireçlenmesi",
+      "kış çayı",
+      "gümüşhane"
+    ],
+    "image": "assets/flora/rosa-canina.jpg"
+  },
+  {
+    "id": "ganoderma-lucidum",
+    "name": "Reishi Mantarı (Ölümsüzlük Mantarı)",
+    "scientific_name": "Ganoderma lucidum",
+    "family": "Ganodermataceae (Reishigiller)",
+    "category": "mantar",
+    "category_title": "Mantar Türü",
+    "sub_category": "TIBBİ MANTAR - BİNLİK İMPARATORLUK İKSİRİ",
+    "toxicity": {
+      "level": "Zehirsiz (Tıbbi Tür - Odunsu Yapı)",
+      "badge": "safe",
+      "pets_cat": "Veteriner takviyesi olarak kontrollü kullanılır",
+      "pets_dog": "Bağışıklık desteği olarak kullanılır",
+      "children": "Çocuklara takviye olarak doktor onayıyla verilir",
+      "contact": "Zararsız",
+      "symptoms": "Odunsu ve sert olduğu için doğrudan çiğnenip yemek gibi pişirilmez; kaynatılarak çayı veya özütü tüketilir.",
+      "emergency_action": "Kan sulandırıcı kullananlar hekime danışmalıdır."
+    },
+    "care": {
+      "light": "Nemli meşe ve kestane kütükleri",
+      "water": "Yüksek orman nemi",
+      "humidity": "Çok Yüksek",
+      "soil": "Çürüyen sert odun dokusu",
+      "difficulty": "Yabani Tıbbi Mantar"
+    },
+    "culinary_medicinal": {
+      "is_medicinal": true,
+      "is_edible": false,
+      "uses": "Beta-glukan ve triterpenoid deposudur. Bağışıklık sistemini modüle eder, kanser araştırmalarında ve hücre yenilenmesinde incelenir."
+    },
+    "turkey_distribution": "Karadeniz ve Marmara meşe ve kestane ormanlarında kütüklerde doğal olarak yetişir.",
+    "description": "Verniklenmiş gibi parıldayan böbrek biçimli kırmızı-kahverengi şapkası ve odunsu dokusuyla Çin imparatorlarının 'Ölümsüzlük İksiri' dediği kadim tıbbi mantardır.",
+    "icon": "🍄",
+    "tags": [
+      "reishi",
+      "ölümsüzlük mantarı",
+      "tıbbi mantar",
+      "beta glukan",
+      "bağışıklık",
+      "kanser araştırmaları"
+    ],
+    "image": "assets/flora/ganoderma-lucidum.jpg"
+  },
+  {
+    "id": "hericium-erinaceus",
+    "name": "Aslan Yelesi Mantarı (Dede Sakalı)",
+    "scientific_name": "Hericium erinaceus",
+    "family": "Hericiaceae (Dedesakalıgiller)",
+    "category": "mantar",
+    "category_title": "Mantar Türü",
+    "sub_category": "YENİLEBİLİR GURME & BEYİN-HAFIZA DOSTU",
+    "toxicity": {
+      "level": "Zehirsiz (Süper Gıda & Şifalı)",
+      "badge": "safe",
+      "pets_cat": "Zararsız",
+      "pets_dog": "Zararsız",
+      "children": "Besleyici ve güvenli",
+      "contact": "Bembeyaz ipeksi saçaklar",
+      "symptoms": "Zehirli değildir.",
+      "emergency_action": "Tavada tereyağında ıstakoz tadında pişirilir."
+    },
+    "care": {
+      "light": "Yaşlı meşe ve kayın ağaçlarının gövdeleri",
+      "water": "Sonbahar orman yağışları",
+      "humidity": "Yüksek",
+      "soil": "Ağaç kovukları ve ölü gövdeler",
+      "difficulty": "Doğada ender rastlanır"
+    },
+    "culinary_medicinal": {
+      "is_medicinal": true,
+      "is_edible": true,
+      "uses": "İçerdiği herisenon ve erinasin maddeleri sinir büyüme faktörünü (NGF) uyarır. Alzheimer, hafıza kaybı ve odaklanma sorunlarında doğanın en güçlü nootropiğidir."
+    },
+    "turkey_distribution": "Belgrad Ormanları, Bolu ve Karadeniz yaşlı kayın ormanlarında ender de olsa görülür.",
+    "description": "Bembeyaz sarkan binlerce saçaklı ipeksi tüyüyle ormanda bir şelaleyi veya aslan yelesini andırır. Pişirildiğinde deniz tarağı ve ıstakoz lezzeti veren bir gastronomi ve tıp harikasıdır.",
+    "icon": "🦁",
+    "tags": [
+      "aslan yelesi",
+      "dede sakalı",
+      "beyin sağlığı",
+      "hafıza",
+      "ngf",
+      "gurme mantar",
+      "yenilebilir"
+    ],
+    "image": "assets/flora/hericium-erinaceus.jpg"
+  },
+  {
+    "id": "craterellus-cornucopioides",
+    "name": "Borazan Mantarı (Trompet / Siyah Elmas)",
+    "scientific_name": "Craterellus cornucopioides",
+    "family": "Cantharellaceae (Çanterelgiller)",
+    "category": "mantar",
+    "category_title": "Mantar Türü",
+    "sub_category": "KAPKARANLIK GURME MÜCEVHER - ASLA KURTLANMAZ",
+    "toxicity": {
+      "level": "Zehirsiz (Mükemmel Lezzetli)",
+      "badge": "safe",
+      "pets_cat": "Pişmiş az miktar zararsız",
+      "pets_dog": "Zararsız",
+      "children": "Güvenle tüketilebilir",
+      "contact": "Zararsız",
+      "symptoms": "Zehirli değildir.",
+      "emergency_action": "Kurutulup baharat gibi çorbalara ufalanır."
+    },
+    "care": {
+      "light": "Meşe ve kayın orman tabanındaki kuru yapraklar",
+      "water": "Sonbahar yağmurları",
+      "humidity": "Yüksek",
+      "soil": "Kalkerli ve dökülmüş meşe yaprakları altı",
+      "difficulty": "Kamuflaj ustasıdır, görmesi çok zordur"
+    },
+    "culinary_medicinal": {
+      "is_medicinal": true,
+      "is_edible": true,
+      "uses": "Fransız şeflerin 'Yoksul Trüfü' dediği kurutulduğunda aroması katlanan muhteşem bir gurme lezzettir."
+    },
+    "turkey_distribution": "Bolu, Düzce, Şile ve Karadeniz meşe ormanlarında sonbaharda gizlenir.",
+    "description": "Kapkara huni veya borazan biçimindeki görüntüsü ilk bakışta insanı korkutsa da ormanların en lezzetli ve kıymetli mantarlarından biridir. Yere dökülmüş çürük yapraklar arasında kusursuz kamufle olur.",
+    "icon": "🎺",
+    "tags": [
+      "borazan mantarı",
+      "trompet",
+      "kara mantar",
+      "gurme",
+      "fransız mutfağı",
+      "yenilebilir"
+    ],
+    "image": "assets/flora/craterellus-cornucopioides.jpg"
+  },
+  {
+    "id": "calocybe-gambosa",
+    "name": "Cincile Mantarı (Mayıs Çayır Mantarı)",
+    "scientific_name": "Calocybe gambosa",
+    "family": "Lyophyllaceae (Liyofillagiller)",
+    "category": "mantar",
+    "category_title": "Mantar Türü",
+    "sub_category": "BAHARIN İLK ÇAYIR LEZZETİ - UN KOKULU",
+    "toxicity": {
+      "level": "Zehirsiz (Lezzetli & Güvenli)",
+      "badge": "safe",
+      "pets_cat": "Zararsız",
+      "pets_dog": "Zararsız",
+      "children": "Güvenli",
+      "contact": "Zararsız",
+      "symptoms": "Zehirli değildir.",
+      "emergency_action": "Taze un kokusuyla kolayca tanınır."
+    },
+    "care": {
+      "light": "Açık otlaklar ve kireçli çayırlar",
+      "water": "İlkbahar mayıs yağışları",
+      "humidity": "Orta",
+      "soil": "Çimenlik alanlarda peri halkaları halinde",
+      "difficulty": "Geleneksel toplama"
+    },
+    "culinary_medicinal": {
+      "is_medicinal": true,
+      "is_edible": true,
+      "uses": "Kastamonu ve Bolu köylerinde tereyağlı pidesi, omleti ve kavurması bayram havasında pişirilir."
+    },
+    "turkey_distribution": "Kastamonu, Karabük, Bolu, Sinop ve Tokat çayırlarında mayıs ayında halka halka çıkar.",
+    "description": "Krem-fildişi rengi kalın etli şapkası ve taze öğütülmüş un gibi mis kokusuyla Anadolu köylüsünün ilkbaharda dört gözle beklediği bereket simgesidir.",
+    "icon": "🌾",
+    "tags": [
+      "cincile",
+      "çayır mantarı",
+      "kastamonu",
+      "mayıs mantarı",
+      "un kokulu",
+      "yenilebilir"
+    ],
+    "image": "assets/flora/calocybe-gambosa.jpg"
   }
 ]

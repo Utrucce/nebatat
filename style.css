@@ -2188,3 +2188,300 @@ body {
 .wizard-choice-btn .choice-icon {
   font-size: 2rem;
 }
+/* ===================================================
+   ŞİFALI ÇAY DEMLEME LABORATUVARI (HERBAL TEA LAB)
+   =================================================== */
+.tea-lab-section {
+  margin: 60px 0;
+  padding: 40px 30px;
+  background: linear-gradient(135deg, rgba(6, 44, 34, 0.9) 0%, rgba(2, 26, 20, 0.96) 100%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-leaf);
+  box-shadow: var(--shadow-leaf);
+}
+
+.tea-lab-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 30px;
+  align-items: start;
+  margin-top: 24px;
+}
+
+@media (max-width: 860px) {
+  .tea-lab-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tea-selector-box {
+  background: rgba(2, 26, 20, 0.8);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  padding: 24px;
+}
+
+.tea-select-dropdown {
+  width: 100%;
+  background: rgba(4, 38, 29, 0.95);
+  border: 1px solid var(--emerald-400);
+  color: #ffffff;
+  padding: 12px 16px;
+  border-radius: 14px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  outline: none;
+  cursor: pointer;
+}
+
+.tea-quick-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tea-chip-btn {
+  background: rgba(6, 78, 59, 0.35);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  color: var(--text-muted);
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.tea-chip-btn:hover, .tea-chip-btn.active {
+  background: var(--emerald-600);
+  color: #ffffff;
+  border-color: var(--emerald-300);
+}
+
+.tea-card-display {
+  background: rgba(2, 26, 20, 0.85);
+  border: 2px solid var(--gold-400);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+}
+
+.tea-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.tea-name-title {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: #ffffff;
+}
+
+.tea-method-badge {
+  background: rgba(245, 158, 11, 0.2);
+  border: 1px solid var(--gold-400);
+  color: var(--gold-300);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.tea-spec-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 500px) {
+  .tea-spec-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tea-metric-item {
+  background: rgba(6, 78, 59, 0.3);
+  border: 1px solid rgba(52, 211, 153, 0.15);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+}
+
+.tea-metric-item strong {
+  display: block;
+  font-size: 1.25rem;
+  color: var(--emerald-300);
+  margin-top: 4px;
+}
+
+.tea-timer-box {
+  background: rgba(3, 31, 23, 0.9);
+  border: 1px dashed var(--glass-border);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.timer-countdown {
+  font-family: monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold-400);
+  letter-spacing: 2px;
+}
+
+.timer-ctrl-btn {
+  background: linear-gradient(135deg, var(--emerald-600), var(--emerald-700));
+  border: 1px solid var(--emerald-400);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: var(--radius-leaf);
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.timer-ctrl-btn:hover {
+  background: var(--emerald-500);
+  transform: scale(1.05);
+}
+
+.tea-caution-box {
+  background: rgba(239, 68, 68, 0.15);
+  border-left: 4px solid var(--danger-500);
+  padding: 12px 16px;
+  border-radius: 0 10px 10px 0;
+  font-size: 0.85rem;
+  color: #fee2e2;
+  line-height: 1.5;
+}
+
+/* ===================================================
+   EVCİL HAYVAN TOKSİSİTE DEDEKTİFİ (PET POISON RADAR)
+   =================================================== */
+.pet-checker-section {
+  margin: 60px 0;
+  padding: 36px 30px;
+  background: rgba(4, 38, 29, 0.75);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-leaf);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow-leaf);
+}
+
+.pet-checker-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.pet-type-btn {
+  background: rgba(6, 78, 59, 0.4);
+  border: 2px solid var(--glass-border);
+  color: var(--text-muted);
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition-smooth);
+}
+
+.pet-type-btn.active {
+  background: linear-gradient(135deg, var(--emerald-600), var(--emerald-800));
+  border-color: var(--emerald-300);
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+}
+
+.pet-results-display {
+  background: rgba(2, 26, 20, 0.85);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.pet-species-card-mini {
+  background: rgba(6, 78, 59, 0.25);
+  border: 1px solid rgba(52, 211, 153, 0.15);
+  border-radius: 14px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+  transition: var(--transition-smooth);
+}
+
+.pet-species-card-mini:hover {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: var(--emerald-400);
+}
+
+.pet-badge-safe {
+  background: rgba(16, 185, 129, 0.25);
+  border: 1px solid #10b981;
+  color: #6ee7b7;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.pet-badge-toxic {
+  background: rgba(239, 68, 68, 0.25);
+  border: 1px solid #ef4444;
+  color: #fca5a5;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+/* ===================================================
+   YAZDIRMA STİLLERİ (@MEDIA PRINT)
+   =================================================== */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  #botanical-canvas, .main-header, .search-wrapper, .hero-section, .filter-section,
+  .lookalikes-section, .season-section, .map-section, .quiz-section, .main-footer,
+  .pitrak-floating-trigger, .pitrak-modal-window, .modal-close-btn, .timer-ctrl-btn {
+    display: none !important;
+  }
+  .modal-overlay {
+    position: static !important;
+    display: block !important;
+    background: transparent !important;
+    opacity: 1 !important;
+    padding: 0 !important;
+  }
+  .modal-container {
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    max-height: none !important;
+  }
+  .modal-common-name, .modal-scientific-name, .modal-description-full, .dossier-card {
+    color: #000000 !important;
+    background: transparent !important;
+  }
+}

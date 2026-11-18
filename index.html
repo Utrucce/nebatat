@@ -55,6 +55,12 @@
         <a href="#lookalikes-section" class="leaf-nav-btn">
           <span>🍄 İkizler Tuzağı</span>
         </a>
+        <a href="#tea-lab-section" class="leaf-nav-btn">
+          <span>🍵 Çay Demleme</span>
+        </a>
+        <a href="#pet-checker-section" class="leaf-nav-btn">
+          <span>🐾 Evcil Hayvan</span>
+        </a>
         <a href="#season-section" class="leaf-nav-btn">
           <span>📅 Mevsim Takvimi</span>
         </a>
@@ -119,10 +125,10 @@
       <!-- Hızlı Sayaç Rozetleri -->
       <div class="hero-stats-row">
         <div class="stat-pill">
-          <span>🌿</span> <strong>48</strong> Özgün Botanik Tür
+          <span>🌿</span> <strong>60</strong> Doğrulanmış Botanik Tür
         </div>
         <div class="stat-pill">
-          <span>🍄</span> <strong>10</strong> Yabani Mantar Türü
+          <span>🍄</span> <strong>14</strong> Yabani & Tıbbi Mantar
         </div>
         <div class="stat-pill">
           <span>🐱</span> <strong>%100</strong> Evcil Hayvan Analizi
@@ -238,7 +244,7 @@
         </div>
 
         <div style="font-size:0.8rem; color:var(--gold-400);">
-          🌱 Herhangi bir türe tıklayarak tam botanik dosyasını ve bakım tüyolarını açabilirsiniz.
+          🌱 Kartın üzerindeki kalp simgesine basarak türü kendi dijital bahçenize kaydedebilirsiniz.
         </div>
       </div>
 
@@ -368,6 +374,79 @@
             </ul>
           </div>
         </article>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         ŞİFALI ÇAY DEMLEME LABORATUVARI (HERBAL TEA LAB)
+         ========================================== -->
+    <section id="tea-lab-section" class="tea-lab-section">
+      <div class="section-header-centered">
+        <span class="section-tag">KADİM BİTKİSEL ECZANE</span>
+        <h2 class="section-title">🍵 Şifalı Çay Demleme Laboratuvarı & Dozaj Sayacı</h2>
+        <p class="section-subtitle">
+          Bitkilerin şifalı etken maddelerini öldürmeden en doğru ısı ve sürede demleyin. İnteraktif demleme sayacını başlatın.
+        </p>
+      </div>
+
+      <div class="tea-lab-grid">
+        <!-- Sol: Bitki Seçimi -->
+        <div class="tea-selector-box">
+          <label for="tea-select" style="font-size:0.9rem; font-weight:700; color:var(--gold-400); margin-bottom:8px; display:block;">
+            Demlemek İstediğiniz Şifalı Bitkiyi Seçin:
+          </label>
+          <select id="tea-select" class="tea-select-dropdown">
+            <option value="papatya">Tıbbi Papatya (Uyku & Mide)</option>
+            <option value="adacayi">Tıbbi Adaçayı (Boğaz & Antiseptik)</option>
+            <option value="kantaron">Sarı Kantaron (Ruh Sağlığı & Yara)</option>
+            <option value="ihlamur">Ihlamur Çiçeği (Göğüs & Öksürük)</option>
+            <option value="melisa">Limon Melisa (Huzur & Çarpıntı)</option>
+            <option value="kusburnu">Kuşburnu (C Vitamini & Eklem)</option>
+            <option value="biberiye">Biberiye (Hafıza & Zihin Açıcı)</option>
+            <option value="kekik">İzmir Kekiği (Doğal Antibiyotik)</option>
+            <option value="isirgan">Büyük Isırgan (Kan Yapıcı & Demir)</option>
+          </select>
+
+          <div style="font-size:0.8rem; color:var(--text-muted); margin-bottom:12px; font-weight:700;">HIZLI SEÇİM:</div>
+          <div class="tea-quick-chips">
+            <button class="tea-chip-btn active" data-tea="papatya" type="button">🌼 Papatya</button>
+            <button class="tea-chip-btn" data-tea="adacayi" type="button">🍃 Adaçayı</button>
+            <button class="tea-chip-btn" data-tea="ihlamur" type="button">☕ Ihlamur</button>
+            <button class="tea-chip-btn" data-tea="kantaron" type="button">💛 Kantaron</button>
+            <button class="tea-chip-btn" data-tea="kusburnu" type="button">🔴 Kuşburnu</button>
+          </div>
+        </div>
+
+        <!-- Sağ: Demleme Talimatı & Zamanlayıcı Kartı -->
+        <div id="tea-display-card" class="tea-card-display">
+          <!-- JavaScript tarafından doldurulur -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         EVCİL HAYVAN TOKSİSİTE DEDEKTİFİ
+         ========================================== -->
+    <section id="pet-checker-section" class="pet-checker-section">
+      <div class="section-header-centered">
+        <span class="section-tag" style="color:#6ee7b7;">PATİLİ DOSTLARIMIZ İÇİN GÜVENLİK</span>
+        <h2 class="section-title">🐾 Kedi & Köpek Zehirlenme Dedektifi</h2>
+        <p class="section-subtitle">
+          Evinize almayı düşündüğünüz veya evinizde bulunan saksı çiçeğinin patili dostunuza zararlı olup olmadığını saniyeler içinde sorgulayın.
+        </p>
+      </div>
+
+      <div class="pet-checker-controls">
+        <button id="pet-btn-cat" class="pet-type-btn active" type="button">
+          <span>🐱 Kedim Var (Kedi Güvenliği)</span>
+        </button>
+        <button id="pet-btn-dog" class="pet-type-btn" type="button">
+          <span>🐶 Köpeğim Var (Köpek Güvenliği)</span>
+        </button>
+      </div>
+
+      <div id="pet-results-container" class="pet-results-display">
+        <!-- JavaScript tarafından doldurulur -->
       </div>
     </section>
 
