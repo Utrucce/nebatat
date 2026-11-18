@@ -52,14 +52,26 @@
         <a href="#flora-explorer" class="leaf-nav-btn">
           <span>🌱 Türler</span>
         </a>
+        <a href="#lookalikes-section" class="leaf-nav-btn">
+          <span>🍄 İkizler Tuzağı</span>
+        </a>
+        <a href="#season-section" class="leaf-nav-btn">
+          <span>📅 Mevsim Takvimi</span>
+        </a>
         <a href="#turkey-map-section" class="leaf-nav-btn">
-          <span>🗺️ Flora Haritası</span>
+          <span>🗺️ Harita</span>
         </a>
         <a href="#quiz-section" class="leaf-nav-btn">
           <span>🎯 Mini Oyun</span>
         </a>
+        <button id="wizard-trigger-btn" class="wizard-btn-trigger" type="button" title="Adım adım tür teşhis et">
+          <span>🔮 Akıllı Teşhis</span>
+        </button>
+        <button id="ambience-toggle-btn" class="ambience-toggle-btn" type="button" title="Doğa ambiyans sesini aç/kapat">
+          <span id="ambience-icon">🍃</span> <span id="ambience-text">Orman Sesi</span>
+        </button>
         <button id="first-aid-trigger" class="leaf-nav-btn danger-btn" type="button">
-          <span>🚨 UZEM 114 İlk Yardım</span>
+          <span>🚨 UZEM 114</span>
         </button>
       </nav>
 
@@ -186,7 +198,7 @@
         </button>
       </div>
 
-      <!-- Alt Güvenlik Filtreleri -->
+      <!-- Alt Güvenlik & Sıralama Filtreleri -->
       <div class="sub-filter-bar">
         <div class="filter-pills-group">
           <span style="font-size:0.8rem; color:var(--gold-400); font-weight:700;">HIZLI FİLTRE:</span>
@@ -202,6 +214,9 @@
           <button class="sub-filter-pill" data-subfilter="lethal" type="button">
             <span>⚠️ Ölümcül / Yüksek Toksik</span>
           </button>
+          <button class="sub-filter-pill" data-subfilter="fav_only" id="fav-filter-pill" type="button">
+            <span>❤️ Favorilerim (<strong id="fav-count-badge">0</strong>)</span>
+          </button>
         </div>
 
         <div class="results-info-text">
@@ -209,9 +224,175 @@
         </div>
       </div>
 
+      <!-- Sıralama Çubuğu -->
+      <div class="sort-filter-row">
+        <div style="font-size:0.85rem; color:var(--text-muted); display:flex; align-items:center; gap:8px;">
+          <span>⚡ Görünüm & Sıralama:</span>
+          <select id="sort-select" class="sort-select-box">
+            <option value="default">Varsayılan Öneri</option>
+            <option value="name_asc">İsim (A ➔ Z)</option>
+            <option value="name_desc">İsim (Z ➔ A)</option>
+            <option value="tox_desc">Toksisite (Tehlikeliden Güvenliye)</option>
+            <option value="diff_asc">Bakım Kolaylığı (Kolaydan Zora)</option>
+          </select>
+        </div>
+
+        <div style="font-size:0.8rem; color:var(--gold-400);">
+          🌱 Herhangi bir türe tıklayarak tam botanik dosyasını ve bakım tüyolarını açabilirsiniz.
+        </div>
+      </div>
+
       <!-- Kartlar Izgarası -->
       <div id="flora-grid" class="flora-grid">
         <!-- JavaScript tarafından dinamik oluşturulur -->
+      </div>
+    </section>
+
+    <!-- ==========================================
+         İKİZLER TUZAĞI (LOOKALIKES BÖLÜMÜ)
+         ========================================== -->
+    <section id="lookalikes-section" class="lookalikes-section">
+      <div class="section-header-centered">
+        <span class="section-tag" style="color:#f87171;">HAYAT KURTARAN BOTANİK DETAYLARI</span>
+        <h2 class="section-title">🍄 İkizler Tuzağı: Yenilebilir vs. Ölümcül Benzerler</h2>
+        <p class="section-subtitle">
+          Doğada mantar ve yabani ot toplarken en büyük zehirlenme sebebi birbirini taklit eden benzer türlerdir. Asla yanılmamanız gereken 4 kritik ayrım:
+        </p>
+      </div>
+
+      <div class="lookalike-grid">
+        <!-- İkiz 1: Köygöçüren vs Çayır Mantarı -->
+        <article class="lookalike-card">
+          <div class="lookalike-duo-header">
+            <div class="duo-side">
+              <img src="assets/flora/amanita-phalloides.jpg" alt="Köygöçüren" class="duo-img">
+              <span class="duo-label lethal">☠️ Ölümcül</span>
+              <div class="duo-name-tag">Köygöçüren (*Amanita*)</div>
+            </div>
+            <div class="duo-side">
+              <img src="assets/flora/boletus-edulis.jpg" alt="Çayır Mantarı" class="duo-img">
+              <span class="duo-label safe">✅ Yenen</span>
+              <div class="duo-name-tag">Çayır / Kültür Mantarı</div>
+            </div>
+          </div>
+          <div class="lookalike-card-body">
+            <h3 class="lookalike-title">
+              <span>Köygöçüren ⚡ Çayır Mantarı</span>
+              <span style="font-size:1.2rem;">🍄</span>
+            </h3>
+            <ul class="lookalike-diff-list">
+              <li><strong>Lamel Rengi:</strong> Köygöçürenin lamelleri <em>daima bembeyazdır</em>; Çayır mantarının lamelleri ise olgunlaştıkça <em>pembe ve çikolata kahvesine</em> döner.</li>
+              <li><strong>Kök Torbası (Volva):</strong> Köygöçürenin kök tabanında belirgin bir yumurta çanağı (volva) bulunur; çayır mantarında volva yoktur.</li>
+              <li><strong>Şapka Tonu:</strong> Köygöçüren hafif zeytuni-sarımtırak bir parıltıya sahiptir.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- İkiz 2: Kuzugöbeği vs Gyromitra -->
+        <article class="lookalike-card">
+          <div class="lookalike-duo-header">
+            <div class="duo-side">
+              <img src="assets/flora/morchella-esculenta.jpg" alt="Kuzugöbeği" class="duo-img">
+              <span class="duo-label safe">✅ Gurme Yenen</span>
+              <div class="duo-name-tag">Gerçek Kuzugöbeği</div>
+            </div>
+            <div class="duo-side">
+              <img src="assets/flora/gyromitra-esculenta.jpg" alt="Yalancı Kuzugöbeği" class="duo-img">
+              <span class="duo-label lethal">☠️ Ölümcül</span>
+              <div class="duo-name-tag">Yalancı Kuzugöbeği</div>
+            </div>
+          </div>
+          <div class="lookalike-card-body">
+            <h3 class="lookalike-title">
+              <span>Kuzugöbeği ⚡ Gyromitra (Beyin)</span>
+              <span style="font-size:1.2rem;">🧠</span>
+            </h3>
+            <ul class="lookalike-diff-list">
+              <li><strong>Şapka Deseni:</strong> Gerçek kuzugöbeği <em>bal peteği gibi düzenli odacıklara</em> sahiptir; yalancı kuzugöbeği ise <em>ceviz içi veya insan beyni kıvrımlarına</em> benzer.</li>
+              <li><strong>İç Gövde:</strong> Gerçek kuzugöbeği ortadan boyuna kesildiğinde <em>sap ve şapka tek parça halinde tamamen boştur</em>; Gyromitranın içi ise dolgulu ve etlidir.</li>
+              <li><strong>Tehlike:</strong> Gyromitra roket yakıtı kimyasalı (monometilhidrazin) içerir.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- İkiz 3: Çanterel vs Ağulu Mantar -->
+        <article class="lookalike-card">
+          <div class="lookalike-duo-header">
+            <div class="duo-side">
+              <img src="assets/flora/cantharellus-cibarius.jpg" alt="Sarı Kız" class="duo-img">
+              <span class="duo-label safe">✅ Mükemmel Lezzetli</span>
+              <div class="duo-name-tag">Sarı Kız (*Çanterel*)</div>
+            </div>
+            <div class="duo-side">
+              <img src="assets/flora/omphalotus-olearius.jpg" alt="Ağulu Mantar" class="duo-img">
+              <span class="duo-label lethal">☠️ Ağır Zehirli</span>
+              <div class="duo-name-tag">Ağulu Mantar (*Omphalotus*)</div>
+            </div>
+          </div>
+          <div class="lookalike-card-body">
+            <h3 class="lookalike-title">
+              <span>Sarı Kız ⚡ Ağulu Mantar</span>
+              <span style="font-size:1.2rem;">✨</span>
+            </h3>
+            <ul class="lookalike-diff-list">
+              <li><strong>Yetişme Yeri:</strong> Sarı Kız doğrudan <em>orman tabanındaki toprak ve yosunlar arasında</em> tek tek biter; Ağulu Mantar ise <em>zeytin veya meşe kütüklerinde öbek öbek</em> büyür.</li>
+              <li><strong>Koku:</strong> Sarı Kız taze koparıldığında <em>mis gibi olgun kayısı</em> kokar.</li>
+              <li><strong>Biyolüminesans:</strong> Ağulu Mantarın lamelleri gece zifiri karanlıkta yeşilimsi ışık saçar.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- İkiz 4: Maydanoz vs Baldıran Otu -->
+        <article class="lookalike-card">
+          <div class="lookalike-duo-header">
+            <div class="duo-side">
+              <img src="assets/flora/conium-maculatum.jpg" alt="Baldıran Otu" class="duo-img">
+              <span class="duo-label lethal">☠️ Sokrates Zehri</span>
+              <div class="duo-name-tag">Baldıran Otu (*Conium*)</div>
+            </div>
+            <div class="duo-side">
+              <img src="assets/flora/salvia-officinalis.jpg" alt="Yabani Şifalı Ot" class="duo-img">
+              <span class="duo-label safe">✅ Güvenli Otlar</span>
+              <div class="duo-name-tag">Yabani Maydanozgiller</div>
+            </div>
+          </div>
+          <div class="lookalike-card-body">
+            <h3 class="lookalike-title">
+              <span>Baldıran Otu ⚡ Yabani Maydanoz</span>
+              <span style="font-size:1.2rem;">🌿</span>
+            </h3>
+            <ul class="lookalike-diff-list">
+              <li><strong>Gövde Lekeleri:</strong> Baldıran otunun alt gövde sapında <em>mor ve kırmızı kan çanağı benekler</em> vardır; maydanozda bu lekeler bulunmaz.</li>
+              <li><strong>Koku Testi:</strong> Maydanoz iştah açıcı ferah bir koku yayarken baldıran yaprakları ezildiğinde <em>keskin fare idrarı kokusu</em> verir.</li>
+              <li><strong>Etki:</strong> Baldıran bilinci kapatmadan solunum kaslarını felç eder.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         MEVSİMSEL TOPLAMA VE BAKIM TAKVİMİ
+         ========================================== -->
+    <section id="season-section" class="season-section">
+      <div class="section-header-centered">
+        <span class="section-tag">DOĞANIN DÖNGÜSÜ</span>
+        <h2 class="section-title">📅 Mevsimsel Botanik ve Mantar Takvimi</h2>
+        <p class="section-subtitle">
+          Hangi mevsimde hangi mantar çıkar? Ne zaman hangi şifalı ot hasat edilir? Evdeki saksılar nasıl sulanır?
+        </p>
+      </div>
+
+      <!-- Mevsim Butonları -->
+      <div class="season-tabs-row">
+        <button class="season-btn active" data-season="spring" type="button">🌱 İlkbahar (Mart - Mayıs)</button>
+        <button class="season-btn" data-season="summer" type="button">☀️ Yaz (Haziran - Ağustos)</button>
+        <button class="season-btn" data-season="autumn" type="button">🍂 Sonbahar (Eylül - Kasım)</button>
+        <button class="season-btn" data-season="winter" type="button">❄️ Kış (Aralık - Şubat)</button>
+      </div>
+
+      <div id="season-content-display" class="season-content-box">
+        <!-- JavaScript tarafından dinamik doldurulur -->
       </div>
     </section>
 
@@ -298,6 +479,18 @@
         <button id="modal-close-btn" class="modal-close-btn" type="button" title="Kapat">✕</button>
         <div id="modal-dynamic-content">
           <!-- JavaScript tarafından doldurulur -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         AKILLI BOTANİK TEŞHİS SİHİRBAZI MODAL
+         ========================================== -->
+    <div id="wizard-modal" class="modal-overlay">
+      <div class="modal-container" style="max-width:720px;">
+        <button id="wizard-close-btn" class="modal-close-btn" type="button" title="Kapat">✕</button>
+        <div id="wizard-dynamic-content" class="modal-content-body" style="padding:36px;">
+          <!-- JavaScript sihirbaz adımları -->
         </div>
       </div>
     </div>

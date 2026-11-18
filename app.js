@@ -1,15 +1,18 @@
 /**
  * NEBÂTAT - Botanik Atlası ve Toksisite Rehberi
- * İstemci Taraflı Uygulama Motoru
- * Hazırlayan: Sertan Çubukcu • ALEF Ekosistemi
+ * İstemci Taraflı Uygulama Motoru (V2.1 Gelişmiş Sürüm)
+ * Hazırlayan: Sertan Çubukcu
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initBotanicalCanvas();
   initFloraApp();
+  initSeasonalCalendar();
   initRegionalMap();
   initBotanicalQuiz();
   initPitrakAssistant();
+  initAmbienceSynthesizer();
+  initSpeciesWizard();
 });
 
 /* ===================================================
@@ -65,7 +68,6 @@ function initBotanicalCanvas() {
       ctx.rotate((p.rotation * Math.PI) / 180);
 
       if (p.type === 'spore') {
-        // Glowing gold / amber spore
         ctx.beginPath();
         ctx.arc(0, 0, p.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(245, 158, 11, ${p.opacity})`;
@@ -73,7 +75,6 @@ function initBotanicalCanvas() {
         ctx.shadowColor = 'rgba(245, 158, 11, 0.6)';
         ctx.fill();
       } else {
-        // Floating emerald leaf fragment
         ctx.beginPath();
         ctx.ellipse(0, 0, p.size * 2, p.size, 0, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(52, 211, 153, ${p.opacity * 0.8})`;
@@ -92,15 +93,47 @@ function initBotanicalCanvas() {
 }
 
 /* ===================================================
-   2. FLORA & MANTAR VERİ MOTORU VE FİLTRELEME
+   2. FLORA & MANTAR VERİ MOTORU, SIRALAMA VE FAVORİLER
    =================================================== */
 let allFlora = [];
 let currentCategory = 'all';
-let currentSubFilter = null; // 'cat_safe', 'dog_safe', 'child_safe', 'lethal'
+let currentSubFilter = null; // 'cat_safe', 'dog_safe', 'child_safe', 'lethal', 'fav_only'
 let currentSearchQuery = '';
+let currentSortMode = 'default';
+
+// Favoriler Sistemi (LocalStorage)
+const FAV_STORAGE_KEY = 'nebatat_fav_species';
+function getFavorites() {
+  try {
+    return JSON.parse(localStorage.getItem(FAV_STORAGE_KEY)) || [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function isFavorite(id) {
+  return getFavorites().includes(id);
+}
+
+function toggleFavorite(id) {
+  let favs = getFavorites();
+  if (favs.includes(id)) {
+    favs = favs.filter(item => item !== id);
+  } else {
+    favs.push(id);
+  }
+  localStorage.setItem(FAV_STORAGE_KEY, JSON.stringify(favs));
+  updateFavBadge();
+}
+
+function updateFavBadge() {
+  const badge = document.getElementById('fav-count-badge');
+  if (badge) {
+    badge.textContent = getFavorites().length;
+  }
+}
 
 function initFloraApp() {
-  // Load data from window.NEBATAT_DATA or fallback fetch
   if (window.NEBATAT_DATA && Array.isArray(window.NEBATAT_DATA)) {
     allFlora = window.NEBATAT_DATA;
     setupFloraUI();
@@ -119,6 +152,7 @@ function initFloraApp() {
 
 function setupFloraUI() {
   updateCounts();
+  updateFavBadge();
   renderFloraGrid();
 
   // Search input listeners
@@ -175,6 +209,15 @@ function setupFloraUI() {
     });
   });
 
+  // Sort Selector
+  const sortSelect = document.getElementById('sort-select');
+  if (sortSelect) {
+    sortSelect.addEventListener('change', (e) => {
+      currentSortMode = e.target.value;
+      renderFloraGrid();
+    });
+  }
+
   // Modal close trigger
   const modalCloseBtn = document.getElementById('modal-close-btn');
   const modalOverlay = document.getElementById('flora-modal');
@@ -213,14 +256,18 @@ function renderFloraGrid() {
   const resultCounter = document.getElementById('results-count');
   if (!grid) return;
 
-  const filtered = allFlora.filter(item => {
+  const favList = getFavorites();
+
+  let filtered = allFlora.filter(item => {
     // 1. Category check
     if (currentCategory !== 'all' && item.category !== currentCategory) {
       return false;
     }
 
     // 2. Sub-filter check
-    if (currentSubFilter === 'cat_safe') {
+    if (currentSubFilter === 'fav_only') {
+      if (!favList.includes(item.id)) return false;
+    } else if (currentSubFilter === 'cat_safe') {
       const catText = (item.toxicity.pets_cat || '').toLowerCase();
       if (!catText.includes('güvenli') && !catText.includes('dostu') && !catText.includes('zararsız')) {
         return false;
@@ -262,6 +309,28 @@ function renderFloraGrid() {
     return true;
   });
 
+  // Sort logic
+  if (currentSortMode === 'name_asc') {
+    filtered.sort((a, b) => a.name.localeCompare(b.name, 'tr'));
+  } else if (currentSortMode === 'name_desc') {
+    filtered.sort((a, b) => b.name.localeCompare(a.name, 'tr'));
+  } else if (currentSortMode === 'tox_desc') {
+    const score = (badge) => {
+      if (badge === 'lethal') return 4;
+      if (badge === 'danger') return 3;
+      if (badge === 'warning') return 2;
+      return 1;
+    };
+    filtered.sort((a, b) => score(b.toxicity.badge) - score(a.toxicity.badge));
+  } else if (currentSortMode === 'diff_asc') {
+    const diffScore = (diff) => {
+      if ((diff || '').includes('Kolay')) return 1;
+      if ((diff || '').includes('Orta')) return 2;
+      return 3;
+    };
+    filtered.sort((a, b) => diffScore(a.care.difficulty) - diffScore(b.care.difficulty));
+  }
+
   if (resultCounter) {
     resultCounter.textContent = filtered.length;
   }
@@ -279,12 +348,27 @@ function renderFloraGrid() {
 
   grid.innerHTML = filtered.map(item => createCardHTML(item)).join('');
 
-  // Attach card click handlers
+  // Attach card detail button clicks
   const detailButtons = grid.querySelectorAll('.card-detail-btn');
   detailButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       const id = btn.getAttribute('data-id');
       openModal(id);
+    });
+  });
+
+  // Attach favorite button clicks
+  const favButtons = grid.querySelectorAll('.card-fav-btn');
+  favButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const id = btn.getAttribute('data-id');
+      toggleFavorite(id);
+      btn.classList.toggle('is-fav');
+      btn.innerHTML = isFavorite(id) ? '❤️' : '🤍';
+      if (currentSubFilter === 'fav_only') {
+        renderFloraGrid();
+      }
     });
   });
 }
@@ -296,12 +380,17 @@ function createCardHTML(item) {
   const catSafe = (item.toxicity.pets_cat || '').toLowerCase().includes('güvenli') || (item.toxicity.pets_cat || '').toLowerCase().includes('dostu');
   const catIcon = catSafe ? '🐱 <span style="color:#6ee7b7">Dostu</span>' : '🐱 <span style="color:#f87171">Toksik</span>';
 
+  const isFav = isFavorite(item.id);
+
   return `
     <article class="flora-card" data-id="${item.id}">
       <div class="card-media-wrapper">
         <img class="card-img" src="${item.image}" alt="${item.name}" loading="lazy" onerror="this.src='assets/flora/monstera-deliciosa.jpg'">
         <span class="card-floating-badge ${badgeClass}">${badgeText}</span>
         <span class="card-category-tag">${item.category_title || 'Botanik'}</span>
+        <button class="card-fav-btn ${isFav ? 'is-fav' : ''}" data-id="${item.id}" type="button" title="Favorilere Ekle">
+          ${isFav ? '❤️' : '🤍'}
+        </button>
       </div>
 
       <div class="card-body">
@@ -341,7 +430,7 @@ function createCardHTML(item) {
 
 /* ===================================================
    3. BOTANİK TÜR DOSYASI MODAL
-   =================================================== */
+   ================================================== */
 function openModal(id) {
   const item = allFlora.find(f => f.id === id);
   if (!item) return;
@@ -503,7 +592,119 @@ function openFirstAidModal() {
 }
 
 /* ===================================================
-   4. İNTERAKTİF TÜRKİYE FLORA & MANTAR BÖLGELERİ
+   4. MEVSİMSEL BOTANİK VE MANTAR TAKVİMİ
+   =================================================== */
+const seasonalCalendarData = {
+  spring: {
+    title: 'İlkbahar Doğanın Uyanışı (Mart - Mayıs)',
+    mushrooms: [
+      { name: 'Kuzugöbeği Mantarı', note: 'Nisan ve mayıs yağmurlarında sedir, çam ve yangın alanlarında çıkar. Altın değerindedir.' },
+      { name: 'Cincile Mantarı', note: 'Mayıs ayında çayırlarda dairesel peri halkaları oluşturarak bolca biter.' }
+    ],
+    herbs: [
+      { name: 'Mayıs Papatyası', note: 'Çiçekleri tam açtığında sabah güneşiyle toplanıp gölgede kurutulur.' },
+      { name: 'Isırgan Otu', note: 'Baharın taze körpe sürgünleri çorba ve kan yapıcı çay için en zengin dönemindedir.' },
+      { name: 'Ters Lale & Sevgi Çiçeği', note: 'Nisan ayında sadece 2-3 hafta açan Anadolu endemiklerinin görsel şölen zamanıdır.' }
+    ],
+    care: [
+      '🌱 <strong>Saksı Değişimi:</strong> Kökleri saksıdan taşan bitkilerin saksılarını 1 boy büyütme zamanıdır.',
+      '💧 <strong>Sulama Artışı:</strong> Kış uykusundan uyanan bitkilerde sulama sıklığı artırılmalı, sıvı besin başlanmalıdır.'
+    ]
+  },
+  summer: {
+    title: 'Yaz Güneşi ve Aromatik Hasat (Haziran - Ağustos)',
+    mushrooms: [
+      { name: 'Yaz Çörek Mantarı (Porçini)', note: 'Yaz başı meşe ve kayın ormanlarında ilk yağmurlar sonrası görülür.' },
+      { name: 'Sarı Kız (Çanterel)', note: 'Temmuz ve ağustos meşe yosunları arasında mis kokusuyla çıkar.' }
+    ],
+    herbs: [
+      { name: 'Sarı Kantaron', note: 'Geleneksel olarak 24 Haziran civarında çiçekleri açtığında toplanıp zeytinyağına yatırılır.' },
+      { name: 'İzmir Kekiği & Tıbbi Adaçayı', note: 'Uçucu yağ oranı öğle sıcağında en yüksek seviyeye ulaştığında hasat edilir.' },
+      { name: 'Tıbbi Lavanta', note: 'Temmuz ayında mor tarlalar biçilir ve buhar distilasyonuyla yağı çıkarılır.' }
+    ],
+    care: [
+      '☀️ <strong>Güneş Koruması:</strong> İç mekan bitkileri direkt pencere camı arkasındaki yakıcı güneşten 1 metre geriye çekilmelidir.',
+      '💨 <strong>Nemlendirme:</strong> Klima çalışan odalarda hava kurur; Calathea ve Monstera yapraklarına su püskürtülmelidir.'
+    ]
+  },
+  autumn: {
+    title: 'Sonbahar Mantar Bayramı (Eylül - Kasım)',
+    mushrooms: [
+      { name: 'Kanlıca Mantarı', note: 'Ekim-Kasım ilk soğuk yağmurlarında çam ormanlarında sepetler dolusu toplanır.' },
+      { name: 'Çörek Mantarı (Porçini)', note: 'Kayın ve köknar ormanlarında dev şapkalarıyla sonbaharın kralıdır.' },
+      { name: '⚠️ Köygöçüren & Sinek Mantarı', note: 'Sonbaharda orman tabanında en sık görülen dönemdir; aşırı dikkat gerektirir!' }
+    ],
+    herbs: [
+      { name: 'Kuşburnu', note: 'Ekim ayında kırmızı meyveleri yumuşayınca toplanır; C vitamini bombası marmelat ve çay yapılır.' },
+      { name: 'Karahindiba Kökleri', note: 'Sonbaharda bitkinin tüm gücü köklere iner; karaciğer çayı için kökler bu mevsim sökülür.' }
+    ],
+    care: [
+      '🍂 <strong>Dinlenmeye Geçiş:</strong> Sulama yavaş yavaş seyreltilmeli, gübreleme durdurulmalıdır.',
+      '🪴 <strong>İçeri Alma:</strong> Balkonda veya bahçede duran hassas salon bitkileri don tehlikesine karşı içeri taşınmalıdır.'
+    ]
+  },
+  winter: {
+    title: 'Kış Sessizliği ve İstiridye Mantarları (Aralık - Şubat)',
+    mushrooms: [
+      { name: 'İstiridye / Kavak Mantarı', note: 'Kış soğuklarında dere kenarlarındaki ölü kavak ve söğüt kütüklerinde doğal olarak çıkar.' },
+      { name: 'Kadife Saplı Mantar (Enoki)', note: 'Karlar altında bile yaşayabilen ender kış mantarlarındandır.' }
+    ],
+    herbs: [
+      { name: 'Ihlamur & Zencefil & Adaçayı', note: 'Kış soğuk algınlığı ve gribe karşı evde kurutulmuş bitki çaylarının demlenme vaktidir.' },
+      { name: 'Defne Yaprağı', note: 'Kış aylarında yaprakları toplanarak kış çorbalarına ve balık yemeklerine lezzet katar.' }
+    ],
+    care: [
+      '❄️ <strong>Sulama Minimuma İndirilmeli:</strong> Paşa Kılıcı ve Zamia gibi sukulentler ayda sadece 1 kez sulanmalıdır.',
+      '🔥 <strong>Kalorifer Tehlikesi:</strong> Bitkiler radyatör ve ısıtıcılardan uzak tutulmalıdır.'
+    ]
+  }
+};
+
+function initSeasonalCalendar() {
+  const seasonButtons = document.querySelectorAll('.season-btn');
+  seasonButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      seasonButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const season = btn.getAttribute('data-season');
+      renderSeasonDetails(season);
+    });
+  });
+
+  renderSeasonDetails('spring');
+}
+
+function renderSeasonDetails(seasonKey) {
+  const data = seasonalCalendarData[seasonKey];
+  const container = document.getElementById('season-content-display');
+  if (!data || !container) return;
+
+  container.innerHTML = `
+    <div class="season-block">
+      <h4>🍄 Orman Mantarları Takvimi</h4>
+      <ul>
+        ${data.mushrooms.map(m => `<li><strong>${m.name}:</strong> ${m.note}</li>`).join('')}
+      </ul>
+    </div>
+
+    <div class="season-block">
+      <h4>🍵 Şifalı Otlar & Hasat</h4>
+      <ul>
+        ${data.herbs.map(h => `<li><strong>${h.name}:</strong> ${h.note}</li>`).join('')}
+      </ul>
+    </div>
+
+    <div class="season-block">
+      <h4>🪴 Ev Bitkileri Bakım Rehberi</h4>
+      <ul>
+        ${data.care.map(c => `<li>${c}</li>`).join('')}
+      </ul>
+    </div>
+  `;
+}
+
+/* ===================================================
+   5. İNTERAKTİF TÜRKİYE FLORA & MANTAR BÖLGELERİ
    =================================================== */
 const regionalData = {
   karadeniz: {
@@ -627,7 +828,7 @@ function renderRegionDetails(key) {
 }
 
 /* ===================================================
-   5. EĞİTİCİ MİNİ OYUN (BOTANICAL QUIZ)
+   6. EĞİTİCİ MİNİ OYUN (BOTANICAL QUIZ)
    =================================================== */
 const quizQuestions = [
   {
@@ -727,7 +928,6 @@ function loadQuizQuestion() {
   if (feedbackEl) feedbackEl.style.display = 'none';
   if (nextBtn) nextBtn.style.display = 'none';
 
-  // Re-enable options
   const optSafeBtn = document.getElementById('quiz-btn-safe');
   const optDangerBtn = document.getElementById('quiz-btn-danger');
   if (optSafeBtn) optSafeBtn.disabled = false;
@@ -766,7 +966,304 @@ function handleQuizAnswer(selectedSafe) {
 }
 
 /* ===================================================
-   6. SEVİMLİ REHBER PITRAK (BOTANİK ASİSTANI)
+   7. WEB AUDIO API DOĞA ORMAN AMBİYANS SENTEZLEYİCİSİ
+   =================================================== */
+let audioCtx = null;
+let isAmbiencePlaying = false;
+let ambienceGain = null;
+let noiseNode = null;
+
+function initAmbienceSynthesizer() {
+  const btn = document.getElementById('ambience-toggle-btn');
+  const iconEl = document.getElementById('ambience-icon');
+  const textEl = document.getElementById('ambience-text');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    if (!audioCtx) {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      audioCtx = new AudioContext();
+    }
+
+    if (audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+
+    if (isAmbiencePlaying) {
+      stopAmbience();
+      btn.classList.remove('playing');
+      if (iconEl) iconEl.textContent = '🍃';
+      if (textEl) textEl.textContent = 'Orman Sesi';
+    } else {
+      startAmbience();
+      btn.classList.add('playing');
+      if (iconEl) iconEl.textContent = '🔊';
+      if (textEl) textEl.textContent = 'Sesi Kapat';
+    }
+  });
+}
+
+function startAmbience() {
+  if (!audioCtx) return;
+  isAmbiencePlaying = true;
+
+  // Pink noise buffer generator for gentle breeze & rustling leaves
+  const bufferSize = audioCtx.sampleRate * 2;
+  const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+  const output = noiseBuffer.getChannelData(0);
+  let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+
+  for (let i = 0; i < bufferSize; i++) {
+    const white = Math.random() * 2 - 1;
+    b0 = 0.99886 * b0 + white * 0.0555179;
+    b1 = 0.99332 * b1 + white * 0.0750759;
+    b2 = 0.96900 * b2 + white * 0.1538520;
+    b3 = 0.86650 * b3 + white * 0.3104856;
+    b4 = 0.55000 * b4 + white * 0.5329522;
+    b5 = -0.7616 * b5 - white * 0.0168980;
+    output[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362) * 0.05;
+    b6 = white * 0.115926;
+  }
+
+  noiseNode = audioCtx.createBufferSource();
+  noiseNode.buffer = noiseBuffer;
+  noiseNode.loop = true;
+
+  // Bandpass filter for organic rustle
+  const filter = audioCtx.createBiquadFilter();
+  filter.type = 'lowpass';
+  filter.frequency.setValueAtTime(450, audioCtx.currentTime);
+
+  // LFO to modulate breeze intensity
+  const lfo = audioCtx.createOscillator();
+  lfo.frequency.setValueAtTime(0.15, audioCtx.currentTime);
+  const lfoGain = audioCtx.createGain();
+  lfoGain.gain.setValueAtTime(200, audioCtx.currentTime);
+  lfo.connect(filter.frequency);
+  lfo.start();
+
+  ambienceGain = audioCtx.createGain();
+  ambienceGain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+
+  noiseNode.connect(filter);
+  filter.connect(ambienceGain);
+  ambienceGain.connect(audioCtx.destination);
+
+  noiseNode.start();
+}
+
+function stopAmbience() {
+  isAmbiencePlaying = false;
+  if (noiseNode) {
+    try {
+      noiseNode.stop();
+      noiseNode.disconnect();
+    } catch (e) {}
+  }
+}
+
+/* ===================================================
+   8. AKILLI BOTANİK TEŞHİS SİHİRBAZI (WIZARD)
+   =================================================== */
+function initSpeciesWizard() {
+  const triggerBtn = document.getElementById('wizard-trigger-btn');
+  const modal = document.getElementById('wizard-modal');
+  const closeBtn = document.getElementById('wizard-close-btn');
+
+  if (triggerBtn && modal) {
+    triggerBtn.addEventListener('click', () => {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      renderWizardStep1();
+    });
+  }
+
+  if (closeBtn && modal) {
+    closeBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  }
+}
+
+function renderWizardStep1() {
+  const content = document.getElementById('wizard-dynamic-content');
+  if (!content) return;
+
+  content.innerHTML = `
+    <div class="wizard-card-step">
+      <span style="font-size:2.8rem; display:block; margin-bottom:12px;">🔮</span>
+      <h3 class="wizard-step-title">1. Adım: Hangi Canlıyla Karşılaştın?</h3>
+      <p class="wizard-step-desc">İncelemek istediğin türün temel yapısını seç:</p>
+
+      <div class="wizard-choice-grid">
+        <button class="wizard-choice-btn" onclick="renderWizardStepMushroom()" type="button">
+          <span class="choice-icon">🍄</span>
+          <span>Bir Mantar Türü</span>
+          <span style="font-size:0.75rem; color:var(--text-muted);">Şapkalı, ormanda veya ağaçta</span>
+        </button>
+        <button class="wizard-choice-btn" onclick="renderWizardStepPlant()" type="button">
+          <span class="choice-icon">🌿</span>
+          <span>Yapraklı / Çiçekli Bitki</span>
+          <span style="font-size:0.75rem; color:var(--text-muted);">Ev saksısında, dağda veya tarlada</span>
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+window.renderWizardStepMushroom = function() {
+  const content = document.getElementById('wizard-dynamic-content');
+  if (!content) return;
+
+  content.innerHTML = `
+    <div class="wizard-card-step">
+      <span style="font-size:2.5rem; display:block; margin-bottom:12px;">🍄</span>
+      <h3 class="wizard-step-title">2. Adım: Şapka Altı Dokusu Nasıl?</h3>
+      <p class="wizard-step-desc">Mantarı altından incelediğinde ne görüyorsun?</p>
+
+      <div class="wizard-choice-grid">
+        <button class="wizard-choice-btn" onclick="showWizardMushroomResults('lamel')" type="button">
+          <span class="choice-icon">🪭</span>
+          <span>Çizgili Yaprakçıklar (Lamelli)</span>
+          <span style="font-size:0.75rem; color:var(--text-muted);">Köygöçüren, Sinek Mantarı, Kanlıca vb.</span>
+        </button>
+        <button class="wizard-choice-btn" onclick="showWizardMushroomResults('sponge')" type="button">
+          <span class="choice-icon">🧽</span>
+          <span>Süngerimsi Gözenekler (Delikli)</span>
+          <span style="font-size:0.75rem; color:var(--text-muted);">Çörek Mantarı / Porçini vb.</span>
+        </button>
+        <button class="wizard-choice-btn" onclick="showWizardMushroomResults('honeycomb')" type="button">
+          <span class="choice-icon">🐝</span>
+          <span>Bal Peteği / Beyin Kıvrımlı</span>
+          <span style="font-size:0.75rem; color:var(--text-muted);">Kuzugöbeği veya Gyromitra</span>
+        </button>
+      </div>
+    </div>
+  `;
+};
+
+window.renderWizardStepPlant = function() {
+  const content = document.getElementById('wizard-dynamic-content');
+  if (!content) return;
+
+  content.innerHTML = `
+    <div class="wizard-card-step">
+      <span style="font-size:2.5rem; display:block; margin-bottom:12px;">🌿</span>
+      <h3 class="wizard-step-title">2. Adım: Bitki Nerede Bulunuyor?</h3>
+      <p class="wizard-step-desc">Doğal ortamı ve yaprak yapısı nedir?</p>
+
+      <div class="wizard-choice-grid">
+        <button class="wizard-choice-btn" onclick="showWizardPlantResults('indoor')" type="button">
+          <span class="choice-icon">🪴</span>
+          <span>İç Mekan / Ev Saksısında</span>
+          <span style="font-size:0.75rem; color:var(--text-muted);">Monstera, Barış Çiçeği, Kılıç vb.</span>
+        </button>
+        <button class="wizard-choice-btn" onclick="showWizardPlantResults('wild_toxic')" type="button">
+          <span class="choice-icon">☠️</span>
+          <span>Yol Kenarı / Yabani / Şüpheli</span>
+          <span style="font-size:0.75rem; color:var(--text-muted);">Zakkum, Baldıran, Güzelavrat Otu vb.</span>
+        </button>
+        <button class="wizard-choice-btn" onclick="showWizardPlantResults('medicinal')" type="button">
+          <span class="choice-icon">🍵</span>
+          <span>Aromatik Kokulu / Çayır Otu</span>
+          <span style="font-size:0.75rem; color:var(--text-muted);">Kantaron, Adaçayı, Kekik, Papatya vb.</span>
+        </button>
+      </div>
+    </div>
+  `;
+};
+
+window.showWizardMushroomResults = function(type) {
+  const content = document.getElementById('wizard-dynamic-content');
+  if (!content) return;
+
+  let candidates = [];
+  if (type === 'lamel') {
+    candidates = allFlora.filter(f => ['amanita-phalloides', 'amanita-muscaria', 'lactarius-deliciosus', 'omphalotus-olearius', 'cantharellus-cibarius'].includes(f.id));
+  } else if (type === 'sponge') {
+    candidates = allFlora.filter(f => ['boletus-edulis'].includes(f.id));
+  } else {
+    candidates = allFlora.filter(f => ['morchella-esculenta', 'gyromitra-esculenta'].includes(f.id));
+  }
+
+  content.innerHTML = `
+    <div class="wizard-card-step" style="text-align:left;">
+      <h3 class="wizard-step-title" style="text-align:center;">🔍 Eşleşen Olası Mantar Türleri</h3>
+      <p class="wizard-step-desc" style="text-align:center;">Seçtiğin morfolojiye uyan türler ve güvenlik durumları:</p>
+
+      <div style="display:flex; flex-direction:column; gap:12px; margin-top:20px;">
+        ${candidates.map(c => `
+          <div style="background:rgba(2,26,20,0.8); border:1px solid var(--glass-border); border-radius:14px; padding:14px; display:flex; align-items:center; justify-content:space-between; gap:14px;">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <img src="${c.image}" style="width:52px; height:52px; border-radius:12px; object-fit:cover;">
+              <div>
+                <strong style="color:#ffffff; font-size:1.05rem;">${c.name}</strong>
+                <div style="font-style:italic; font-size:0.8rem; color:var(--gold-400);">${c.scientific_name}</div>
+              </div>
+            </div>
+            <div>
+              <span class="card-floating-badge badge-${c.toxicity.badge}" style="position:static;">${c.toxicity.level}</span>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div style="text-align:center; margin-top:24px;">
+        <button class="first-aid-btn" onclick="renderWizardStep1()" type="button">
+          <span>🔄 Yeniden Teşhis Et</span>
+        </button>
+      </div>
+    </div>
+  `;
+};
+
+window.showWizardPlantResults = function(env) {
+  const content = document.getElementById('wizard-dynamic-content');
+  if (!content) return;
+
+  let candidates = [];
+  if (env === 'indoor') {
+    candidates = allFlora.filter(f => f.category === 'ev_bitkisi').slice(0, 5);
+  } else if (env === 'wild_toxic') {
+    candidates = allFlora.filter(f => f.category === 'zehirli').slice(0, 5);
+  } else {
+    candidates = allFlora.filter(f => f.category === 'sifali').slice(0, 5);
+  }
+
+  content.innerHTML = `
+    <div class="wizard-card-step" style="text-align:left;">
+      <h3 class="wizard-step-title" style="text-align:center;">🔍 Eşleşen Olası Bitkiler</h3>
+      <p class="wizard-step-desc" style="text-align:center;">Habitat ve özellik kriterine en yakın türler:</p>
+
+      <div style="display:flex; flex-direction:column; gap:12px; margin-top:20px;">
+        ${candidates.map(c => `
+          <div style="background:rgba(2,26,20,0.8); border:1px solid var(--glass-border); border-radius:14px; padding:14px; display:flex; align-items:center; justify-content:space-between; gap:14px;">
+            <div style="display:flex; align-items:center; gap:12px;">
+              <img src="${c.image}" style="width:52px; height:52px; border-radius:12px; object-fit:cover;">
+              <div>
+                <strong style="color:#ffffff; font-size:1.05rem;">${c.name}</strong>
+                <div style="font-style:italic; font-size:0.8rem; color:var(--gold-400);">${c.scientific_name}</div>
+              </div>
+            </div>
+            <div>
+              <span class="card-floating-badge badge-${c.toxicity.badge}" style="position:static;">${c.toxicity.level}</span>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div style="text-align:center; margin-top:24px;">
+        <button class="first-aid-btn" onclick="renderWizardStep1()" type="button">
+          <span>🔄 Yeniden Teşhis Et</span>
+        </button>
+      </div>
+    </div>
+  `;
+};
+
+/* ===================================================
+   9. SEVİMLİ REHBER PITRAK (BOTANİK ASİSTANI)
    =================================================== */
 const pitrakKnowledge = [
   {
@@ -842,7 +1339,6 @@ function handlePitrakSend() {
   const query = inputEl.value.trim();
   if (!query) return;
 
-  // Add User Message
   const userMsg = document.createElement('div');
   userMsg.className = 'pitrak-msg user';
   userMsg.textContent = query;
@@ -851,12 +1347,10 @@ function handlePitrakSend() {
   inputEl.value = '';
   messagesArea.scrollTop = messagesArea.scrollHeight;
 
-  // Generate Response
   setTimeout(() => {
     const qLower = query.toLowerCase();
     let reply = null;
 
-    // Check pre-loaded knowledge
     for (const item of pitrakKnowledge) {
       if (item.triggers.some(t => qLower.includes(t))) {
         reply = item.response;
@@ -864,7 +1358,6 @@ function handlePitrakSend() {
       }
     }
 
-    // Check specific plant names in flora dataset
     if (!reply && allFlora.length > 0) {
       const matched = allFlora.find(f => qLower.includes(f.name.toLowerCase()) || qLower.includes(f.scientific_name.toLowerCase()));
       if (matched) {
